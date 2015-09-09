@@ -3,3 +3,6 @@
 BIENVENUE DANS LE PROJET Tutore S3
 DUT INFO - 2014/2015
 =======================================
+
+Nom = Florian
+Prénom = Seguin
