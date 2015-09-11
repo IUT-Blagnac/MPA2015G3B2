@@ -1,3 +1,4 @@
+rem echo off
 set ASCIIDOCDIR=.\tools\asciidoc-8.6.9\
 set PLANTUMLDIR=.\tools\
 set SPRINTDIR=%~dp0
@@ -18,13 +19,14 @@ set MAKETEST=1
 @echo ///////////////////////////////////////////////////////
 "%JAVA_HOME%\bin\java" -jar %PLANTUMLDIR%plantuml.jar -Tpng -o %SRCDOCDIR%images %SRCDOCDIR%diag0.puml
 
-python %ASCIIDOCDIR%asciidoc.py -a source-highlighter=pygments -a iconsdir=../%ASCIIDOCDIR%/images/icons -o %SRCDOCDIR%doc.html %SRCDOCDIR%doc.txt
+python %ASCIIDOCDIR%asciidoc.py -a source-highlighter=pygments -o %SRCDOCDIR%doc.html %SRCDOCDIR%doc.txt
 
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION des tests
 @echo ///////////////////////////////////////////////////////
 if "%MAKETEST%"=="1" (
  "%JAVA_HOME%\bin\javac" -cp .;./tools/junit.jar -d %BINDIR% %SRCDIR%HelloMondeTest.java
+ "%JAVA_HOME%\bin\javac" -cp .;./tools/junit.jar -d %BINDIR% %SRCDIR%LibTest.java
 )
 
 
@@ -34,5 +36,6 @@ if "%MAKETEST%"=="1" (
 if "%MAKETEST%"=="1" (
  cd %BINDIR%
  "%JAVA_HOME%\bin\java" -cp .;../tools/junit.jar HelloMondeTest
+ "%JAVA_HOME%\bin\java" -cp .;../tools/junit.jar LibTest
  cd %SPRINTDIR%
 )
