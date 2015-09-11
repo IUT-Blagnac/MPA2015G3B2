@@ -26,6 +26,7 @@ python %ASCIIDOCDIR%asciidoc.py -a source-highlighter=pygments -o %SRCDOCDIR%doc
 @echo ///////////////////////////////////////////////////////
 if "%MAKETEST%"=="1" (
  "%JAVA_HOME%\bin\javac" -cp .;./tools/junit.jar -d %BINDIR% %SRCDIR%HelloMondeTest.java
+ "%JAVA_HOME%\bin\javac" -cp .;./tools/junit.jar -d %BINDIR% %SRCDIR%LibTest.java
 )
 
 
@@ -35,5 +36,6 @@ if "%MAKETEST%"=="1" (
 if "%MAKETEST%"=="1" (
  cd %BINDIR%
  "%JAVA_HOME%\bin\java" -cp .;../tools/junit.jar HelloMondeTest
+ "%JAVA_HOME%\bin\java" -cp .;../tools/junit.jar LibTest
  cd %SPRINTDIR%
 )
