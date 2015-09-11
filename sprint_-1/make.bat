@@ -39,3 +39,4 @@ if "%MAKETEST%"=="1" (
  "%JAVA_HOME%\bin\java" -cp .;../tools/junit.jar LibTest
  cd %SPRINTDIR%
 )
+pause
