@@ -12,7 +12,8 @@ set MAKETEST=1
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION des executables
 @echo ///////////////////////////////////////////////////////
-"%JAVA_HOME%\bin\javac" -d %BINDIR% %SRCDIR%HelloMonde.java
+"%JAVA_HOME%\bin\javac" -d %BINDIR% %SRCDIR%Lib.java
+"%JAVA_HOME%\bin\javac" -cp ./bin -d %BINDIR% %SRCDIR%HelloMonde.java
 
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION des documentations
@@ -26,7 +27,7 @@ python %ASCIIDOCDIR%asciidoc.py -a source-highlighter=pygments -o %SRCDOCDIR%doc
 @echo ///////////////////////////////////////////////////////
 if "%MAKETEST%"=="1" (
  "%JAVA_HOME%\bin\javac" -cp .;./tools/junit.jar -d %BINDIR% %SRCDIR%HelloMondeTest.java
- "%JAVA_HOME%\bin\javac" -cp .;./tools/junit.jar -d %BINDIR% %SRCDIR%LibTest.java
+ "%JAVA_HOME%\bin\javac" -cp .;./bin;./tools/junit.jar -d %BINDIR% %SRCDIR%LibTest.java
 )
 
 
@@ -39,3 +40,4 @@ if "%MAKETEST%"=="1" (
  "%JAVA_HOME%\bin\java" -cp .;../tools/junit.jar LibTest
  cd %SPRINTDIR%
 )
+pause

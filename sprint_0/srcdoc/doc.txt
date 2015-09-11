@@ -1,6 +1,6 @@
 = Documentation SPRINT-1
-:Author:  Groupe projet [123][AB][12]
-:doctitle: Documentation du Projet MPA-M3301-G[123][AB][12]
+:Author:  Groupe projet 3B2
+:doctitle: Documentation du SPRINT-1
 :slideshowlocation: Your computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :revnumber: -1

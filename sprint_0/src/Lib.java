@@ -1,7 +1,8 @@
 
+
 public class Lib {
 
-	static String coucou() {
+	public static String coucou() {
 		return ("Coucou monde");
 	}
 }
