@@ -1,23 +1,34 @@
-= Documentation SPRINT-1
+= Documentation Technique Projet OPTI
 :Author:  Groupe projet 3B2
-:doctitle: Documentation du SPRINT-1
+:doctitle: Documentation Technique
 :slideshowlocation: Your computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
+:toc: right
+:toc-title: Sommaire
 :revnumber: -1
 
 include::docConf.txt[]
 
-== Exemple de section
 
-- Liste simple
-- Liste simple suite
 
-Paragraphe paragraphe paragraphe paragraphe
-paragraphe paragraphe paragraphe paragraphe
-Paragraphe paragraphe paragraphe paragraphe
-paragraphe paragraphe paragraphe paragraphe
-Paragraphe paragraphe paragraphe paragraphe
-paragraphe paragraphe paragraphe paragraphe
+== Présentation
+
+=== Sujet :
+
+
+
+=== Membres du projet :
+
+[options="header"]
+|=======================================================================
+|Membres            |Rôle                        |Contact
+|Simon TAILLEFER    |SCRUM Master  |simon.taillefer@etu.univ-tlse2.fr
+|Guilhem SABATHIER  |Développeur   |guilhem.sabathier@etu.univ-tlse2.fr
+|Florian SEGUIN     |Développeur   |florian.seguin@etu.univ-tlse2.fr
+|Cédric DOULIEZ     |Développeur   |cedric.douliez@etu.univ-tlse2.fr
+|Antoine BADOC      |Développeur   |antoine.badoc@etu.univ-tlse2.fr
+|Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
+|=======================================================================
 
 
 . Liste numérotée
