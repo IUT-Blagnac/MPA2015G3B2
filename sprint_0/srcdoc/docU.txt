@@ -50,7 +50,9 @@ On peut changer d'onglet avec Test et on peut quitter l'application avec le bout
 
 Une interface graphique minimale est disponible où vous pouvez cliquer sur un onglet "A propos" concernant l'équipe du projet.
 
-En ce qui concerne la librairie permettant de lire et sauvegarder un fichier CSV, elle fonctionne. 
+En ce qui concerne la librairie permettant de lire et sauvegarder un fichier CSV, elle fonctionne.
+
+Le programme de test de la librairie est en cours de développement. 
 
 === Backlog produit SPRINT 0 :
 

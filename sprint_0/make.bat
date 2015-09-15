@@ -12,9 +12,15 @@ set MAKETEST=1
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION des executables et des tests
 @echo ///////////////////////////////////////////////////////
+<<<<<<< .mine
+"%JAVA_HOME%\bin\javac" -d %BINDIR% %SRCDIR%Lib.java
+"%JAVA_HOME%\bin\javac" -cp ./bin -d %BINDIR% %SRCDIR%HelloMonde.java
+"%JAVA_HOME%\bin\javac" -cp ./bin -d %BINDIR% %SRCDIR%sprint0.java
+=======
 if "%MAKETEST%"=="1" (
   "%JAVA_HOME%\bin\javac" -cp .;./bin;./tools/junit.jar -d %BINDIR% @sourcefiles
 )
+
 
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION des documentations

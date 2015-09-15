@@ -48,13 +48,21 @@ On peut changer d'onglet avec Test et on peut quitter l'application avec le bout
 
 === Code JAVA
 
-link:{src}Sprint.java[Code de l'interface graphique] 
+link:{src}sprint0.java[Code de l'interface graphique] 
+
+Pour l'interface, nous utilisons des JPanel et des JLabel pour créer le contenu des onglets. (cf commentaires JAVA).
 
 == Code source
 
 link:{src}LibCSV.java[Code de la librairie CSV]
 
+Une ArrayList de tableau de String créer et sauvegarde un fichier CSV.
+
 == Conclusion 
+
+=== Parcours :
+
+L'interface et la librairie du SPRINT 0 sont terminées, le programme de test pour  la librairie est en cours de développement.
 
 === Backlog produit SPRINT 0 :
 
