@@ -57,4 +57,19 @@ public class LibCSV {
 			throw new Exception(e.toString());
 		}
 	}
+	
+	public static void main(String[] args){
+		ArrayList<String[]> al = new ArrayList<String[]>();
+		String[] ligne1 ={"Nom","Prenom","Date de Naissance"};
+		String[] ligne2 ={"Paul","Henry","02/45/1962"};
+		al.add(ligne1);
+		al.add(ligne2);
+		try{
+			save(al,"test.csv");
+			al = read("test.csv");
+			System.out.println(al.get(0)[0]+"   "+al.get(0)[1]+"   "+al.get(0)[2]);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
 }
