@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title>Documentation Technique</title>
+<title>Documentation Technique SPRINT 0</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -795,7 +795,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Documentation Technique</h1>
+<h1>Documentation Technique SPRINT 0</h1>
 <span id="author">Groupe projet 3B2</span><br />
 <span id="revnumber">version 0</span>
 <div id="toc">
@@ -820,12 +820,13 @@ asciidoc.install(2);
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_sujet">1.1. Sujet :</h3>
-<div class="paragraph"><p>Le but de ce projet OPTI est de</p></div>
+<div class="paragraph"><p>Le but du projet OPTI est de fournir une application de gestion de projets tutorés informatiques.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_organisation_du_groupe">1.2. Organisation du groupe :</h3>
 <div class="paragraph"><p>Pour mener ce projet à bout, nous avons formé un équipe de 6 personnes. Nous allons utiliser la méthode agile SRCUM
-pour être le plus efficace possible.</p></div>
+pour être le plus efficace possible. Chaque semaine, nous effectuons un sprint où chaque membre a une tâche assignée.
+Nous devons fournir un recette à la fin de chaque sprint pour montrer notre avancée au client.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_membres_du_projet">1.3. Membres du projet :</h3>
@@ -878,49 +879,96 @@ cellspacing="0" cellpadding="4">
 </tbody>
 </table>
 </div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="sieste.png">
-<img src="images/sieste.png" alt="sieste.png" width="70%" />
-</a>
-</div>
-<div class="title">Figure 1. Une image et sa légende</div>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_code_source_et_diagrammes_uml">2. Code source et diagrammes UML</h2>
-<div class="sectionbody">
-<div class="paragraph"><p>Voici une façon simple d&#8217;intégrer un <a href="../src/HelloMonde.java">code source</a> :</p></div>
-<div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloMonde</span> <span class="o">{</span>
-
-        <span class="cm">/**</span>
-<span class="cm">         * @param args</span>
-<span class="cm">         */</span>
-        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;[DUT/INFO/S3]&quot;</span><span class="o">);</span>
-             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello Monde !&quot;</span><span class="o">);</span>
-             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;depuis Blagnac.&quot;</span><span class="o">);</span>
-             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Lib</span><span class="o">.</span><span class="na">coucou</span><span class="o">());</span>
-        <span class="o">}</span>
-
-<span class="o">}</span>
-</pre></div></div></div>
-<div class="paragraph"><p>ou du code <a href="http://plantuml.sourceforge.net/">plantUML</a> (source <a href="../srcdoc/diag0.puml">ici</a>) :</p></div>
-<div class="imageblock">
-<div class="content">
-<img src="images/diag0.png" alt="diag0.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_conclusion">3. Conclusion</h2>
+<h2 id="_interface_graphique">2. Interface graphique</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_supports">3.1. Supports</h3>
+<h3 id="_présentation_2">2.1. Présentation :</h3>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="interface.png">
+<img src="images/interface.png" alt="interface.png" width="20%" />
+</a>
+</div>
+</div>
+<div class="paragraph"><p>Voici l&#8217;onglet "A propos" de l&#8217;interface graphique.</p></div>
+<div class="paragraph"><p>On peut changer d&#8217;onglet avec Test et on peut quitter l&#8217;application avec le bouton cliquer qui propose une confirmation.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_code_java">2.2. Code JAVA</h3>
+<div class="paragraph"><p><a href="../src/Sprint.java">Code de l&#8217;interface graphique</a></p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_source">3. Code source</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><a href="../src/LibCSV.java">Code de la librairie CSV</a></p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">4. Conclusion</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_backlog_produit_sprint_0">4.1. Backlog produit SPRINT 0 :</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="50%" />
+<col width="50%" />
+<thead>
+<tr>
+<th align="left" valign="top">Exigences                                            </th>
+<th align="left" valign="top">Réalisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><div class="verse">Liste des sujets de projet tutoré de l’année :
+- Créer/Supprimer/Modifier un sujet
+- Lister les sujets avec filtres</div></td>
+<td align="left" valign="top"><p class="table">0%</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><div class="verse">Voeux des groupes d'étudiants :
+- Définir des groupes d'étudiants
+- Associer des étudiants à des groupes
+- Définir les voeux d’un groupe</div></td>
+<td align="left" valign="top"><p class="table">0%</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><div class="verse">Affectation des projets aux groupes d'étudiants :
+- Définir (affectation) un sujet pour un groupe
+- Lister le nombre de voeux par rang pour un sujet
+- Lister pour un groupe le nombre de "concurrents" par rang de voeux
+- Lister les sujets affectés / non affectés
+- Lister les groupes affectés / non affectés
+- Calcul automatique de pré-affectation "au mieux" sur un ensemble de groupes non affectés</div></td>
+<td align="left" valign="top"><p class="table">0%</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><div class="verse">Affectation des intervenants sur chaque projet tutoré :
+- Définir les intervenants d’un projet tutoré
+- Lister les projets par intervenant
+- Lister les intervenants par projet</div></td>
+<td align="left" valign="top"><p class="table">0%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_a_propos">4.2. A propos</h3>
+<div class="paragraph"><p>Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.</p></div>
+<div class="paragraph"><p>Ceci est le SPRINT 0.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_supports">4.3. Supports</h3>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -930,6 +978,11 @@ Contactez &lt;<a href="mailto:simon.taillefer@etu.univ-tlse2.fr">simon.taillefer
 <li>
 <p>
 Lien vers notre établissement : <a href="http://www.iut-blagnac.fr/">IUT de Blagnac</a>
+</p>
+</li>
+<li>
+<p>
+Ou vers l&#8217;université : <a href="http://www.univ-tlse2.fr//">Université Toulouse 2</a>
 </p>
 </li>
 <li>
@@ -947,7 +1000,7 @@ L&#8217;application a été développée en <a href="https://www.java.com/fr/">J
 <div id="footer">
 <div id="footer-text">
 Version 0<br />
-Last updated 2015-09-15 08:58:42 Paris, Madrid (heure d’été)
+Last updated 2015-09-15 15:53:53 Paris, Madrid (heure d’été)
 </div>
 </div>
 </body>

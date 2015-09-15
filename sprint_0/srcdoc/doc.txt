@@ -1,6 +1,6 @@
-= Documentation Technique Projet OPTI
+﻿= Documentation Technique Projet OPTI
 :Author:  Groupe projet 3B2
-:doctitle: Documentation Technique
+:doctitle: Documentation Technique SPRINT 0
 :slideshowlocation: Your computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :toc: right
@@ -11,11 +11,11 @@ include::docConf.txt[]
 
 image::logo.png[link="logo.png",width="30%"]
 
-== Présentation
+== Présentation 
 
 === Sujet :
 
-Le but du projet OPTI est de 
+Le but du projet OPTI est de fournir une application de gestion de projets tutorés informatiques.
 
 === Organisation du groupe :
 
@@ -36,37 +36,66 @@ Nous devons fournir un recette à la fin de chaque sprint pour montrer notre ava
 |Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
 |=======================================================================
 
+== Interface graphique
 
-.Une image et sa légende
-image::sieste.png[link="sieste.png",width="70%"]
+=== Présentation :
 
-== Code source et diagrammes UML
+image::interface.png[link="interface.png",width="20%"]
 
-Voici une façon simple d'intégrer un link:{src}HelloMonde.java[code source] :
-[source,java]
-----
-include::{src}HelloMonde.java[]
-----
+Voici l'onglet "A propos" de l'interface graphique. 
 
-ou du code {plantUML} (source link:{srcdoc}diag0.puml[ici]) :
+On peut changer d'onglet avec Test et on peut quitter l'application avec le bouton cliquer qui propose une confirmation.
 
-///////////////////////
-imagesdir:
+=== Code JAVA
 
-["plantuml","{srcdoc}diag0.png"]
-----
-include::{srcdoc}diag0.puml[]
-----
-///////////////////////
+link:{src}Sprint.java[Code de l'interface graphique] 
 
-image::diag0.png[]
+== Code source
+
+link:{src}LibCSV.java[Code de la librairie CSV]
 
 == Conclusion 
+
+=== Backlog produit SPRINT 0 :
+
+[options="header"]
+|====================================================================================
+|Exigences                                            |Réalisation
+v|Liste des sujets de projet tutoré de l’année : 
+- Créer/Supprimer/Modifier un sujet
+- Lister les sujets avec filtres                           
+|0%
+v|Voeux des groupes d'étudiants :
+- Définir des groupes d'étudiants
+- Associer des étudiants à des groupes
+- Définir les voeux d’un groupe                                 
+|0%
+v|Affectation des projets aux groupes d'étudiants :
+- Définir (affectation) un sujet pour un groupe
+- Lister le nombre de voeux par rang pour un sujet 
+- Lister pour un groupe le nombre de "concurrents" par rang de voeux
+- Lister les sujets affectés / non affectés
+- Lister les groupes affectés / non affectés
+- Calcul automatique de pré-affectation "au mieux" sur un ensemble de groupes non affectés                                 
+|0%
+v|Affectation des intervenants sur chaque projet tutoré :
+- Définir les intervenants d’un projet tutoré 
+- Lister les projets par intervenant
+- Lister les intervenants par projet             
+|0%
+|====================================================================================
+
+=== A propos
+
+Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.
+
+Ceci est le SPRINT 0.
 
 === Supports
 
 * Contactez <simon.taillefer@etu.univ-tlse2.fr>
 * Lien vers notre établissement : http://www.iut-blagnac.fr/[IUT de Blagnac]
+* Ou vers l'université : http://www.univ-tlse2.fr//[Université Toulouse 2]
 * L'application a été développée en https://www.java.com/fr/[Java]
 
 ~© COO S3 Groupe 3B2 2015 | Réalisé par G3B2 | Tous droits réservés.~ 

@@ -14,6 +14,7 @@ set MAKETEST=1
 @echo ///////////////////////////////////////////////////////
 "%JAVA_HOME%\bin\javac" -d %BINDIR% %SRCDIR%Lib.java
 "%JAVA_HOME%\bin\javac" -cp ./bin -d %BINDIR% %SRCDIR%HelloMonde.java
+"%JAVA_HOME%\bin\javac" -cp ./bin -d %BINDIR% %SRCDIR%Sprint.java
 
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION des documentations
