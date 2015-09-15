@@ -34,6 +34,8 @@ public class LibCSV {
 	}
 	
 	public static void save(ArrayList<String[]> tableau, String filepath)throws Exception{
+		if(tableau == null)
+			throw new Exception("ERREUR ArrayList est NULL");
 		if(!filepath.endsWith(".csv"))
 			throw new Exception("ERREUR Le fichier n'est pas sous format CSV");
 		//création ou ajout dans le fichier csv
