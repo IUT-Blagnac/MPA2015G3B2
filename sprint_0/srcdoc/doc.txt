@@ -5,17 +5,23 @@
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :toc: right
 :toc-title: Sommaire
-:revnumber: -1
+:revnumber: 0
 
 include::docConf.txt[]
 
-
+image::logo.png[link="logo.png",width="30%"]
 
 == Présentation
 
 === Sujet :
 
+Le but du projet OPTI est de 
 
+=== Organisation du groupe :
+
+Pour mener ce projet à bout, nous avons formé un équipe de 6 personnes. Nous allons utiliser la méthode agile SRCUM 
+pour être le plus efficace possible. Chaque semaine, nous effectuons un sprint où chaque membre a une tâche assignée.
+Nous devons fournir un recette à la fin de chaque sprint pour montrer notre avancée au client.  
 
 === Membres du projet :
 
@@ -30,13 +36,6 @@ include::docConf.txt[]
 |Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
 |=======================================================================
 
-
-. Liste numérotée
-. Liste numérotée suite
-
-Pour le texte : *gras*, _italique_, +code+.
- 
-=== Exemple de sous-section
 
 .Une image et sa légende
 image::sieste.png[link="sieste.png",width="70%"]
@@ -62,9 +61,12 @@ include::{srcdoc}diag0.puml[]
 
 image::diag0.png[]
 
-[NOTE]
-====
-Ceci est une note
+== Conclusion 
 
-Voir aussi CAUTION, WARNING et TIP
-====
+=== Supports
+
+* Contactez <simon.taillefer@etu.univ-tlse2.fr>
+* Lien vers notre établissement : http://www.iut-blagnac.fr/[IUT de Blagnac]
+* L'application a été développée en https://www.java.com/fr/[Java]
+
+~© COO S3 Groupe 3B2 2015 | Réalisé par G3B2 | Tous droits réservés.~ 
