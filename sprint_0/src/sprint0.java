@@ -34,6 +34,7 @@ public class sprint0 {
 		JButton quitter = new JButton("Quitter");
 		//Crée la zone de texte
 		JLabel test = new JLabel();
+		JLabel rien = new JLabel();
 		//Ajoute au bouton "Quitter", l'écouteur
 		quitter.addActionListener(actionListener);
 		//Définit le texte dans le Jlabel
@@ -44,6 +45,7 @@ public class sprint0 {
 				+ "Université Toulouse 2 <br>" + "DUT de Blagnac <br>"
 				+ "Projet OPTI <br>");
 		//Ajout de l'élement dans les onglets
+		tabbedPane.addTab("Test", rien);
 		tabbedPane.addTab("A propos", test);
 		//Mise en place des éléments
 		pane.add(quitter, BorderLayout.PAGE_END);
