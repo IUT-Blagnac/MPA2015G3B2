@@ -10,11 +10,11 @@ set DOCDIR=./doc/
 set MAKETEST=1
 
 @echo ///////////////////////////////////////////////////////
-@echo // COMPILATION des executables
+@echo // COMPILATION des executables et des tests
 @echo ///////////////////////////////////////////////////////
-"%JAVA_HOME%\bin\javac" -d %BINDIR% %SRCDIR%Lib.java
-"%JAVA_HOME%\bin\javac" -cp ./bin -d %BINDIR% %SRCDIR%HelloMonde.java
-"%JAVA_HOME%\bin\javac" -cp ./bin -d %BINDIR% %SRCDIR%Sprint.java
+if "%MAKETEST%"=="1" (
+  "%JAVA_HOME%\bin\javac" -cp .;./bin;./tools/junit.jar -d %BINDIR% @sourcefiles
+)
 
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION des documentations
@@ -22,15 +22,7 @@ set MAKETEST=1
 "%JAVA_HOME%\bin\java" -jar %PLANTUMLDIR%plantuml.jar -Tpng -o %SRCDOCDIR%images %SRCDOCDIR%diag0.puml
 
 python %ASCIIDOCDIR%asciidoc.py -a source-highlighter=pygments -o %SRCDOCDIR%doc.html %SRCDOCDIR%doc.txt
-
-@echo ///////////////////////////////////////////////////////
-@echo // COMPILATION des tests
-@echo ///////////////////////////////////////////////////////
-if "%MAKETEST%"=="1" (
- "%JAVA_HOME%\bin\javac" -cp .;./tools/junit.jar -d %BINDIR% %SRCDIR%HelloMondeTest.java
- "%JAVA_HOME%\bin\javac" -cp .;./bin;./tools/junit.jar -d %BINDIR% %SRCDIR%LibTest.java
-)
-
+python %ASCIIDOCDIR%asciidoc.py -a source-highlighter=pygments -o %SRCDOCDIR%docU.html %SRCDOCDIR%docU.txt
 
 @echo ///////////////////////////////////////////////////////
 @echo // EXECUTION des tests
@@ -39,6 +31,7 @@ if "%MAKETEST%"=="1" (
  cd %BINDIR%
  "%JAVA_HOME%\bin\java" -cp .;../tools/junit.jar HelloMondeTest
  "%JAVA_HOME%\bin\java" -cp .;../tools/junit.jar LibTest
+ "%JAVA_HOME%\bin\java" -cp .;../tools/junit.jar LibCSVTest
  cd %SPRINTDIR%
 )
 pause
