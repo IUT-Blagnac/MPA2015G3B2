@@ -13,9 +13,6 @@ public class LibCSVTest extends TestCase {
 	
 	public static void main(String[] args) {
 	    junit.textui.TestRunner.run(new TestSuite(LibCSVTest.class));
-	    if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
-	    else  { System.out.print("OUPS !"); }
-	    System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions verifiees");
 	}
 	
 	public void test_read_preconditions() throws IOException {
