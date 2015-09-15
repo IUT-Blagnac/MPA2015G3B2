@@ -12,7 +12,6 @@ set MAKETEST=1
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION des executables et des tests
 @echo ///////////////////////////////////////////////////////
-
 if "%MAKETEST%"=="1" (
   "%JAVA_HOME%\bin\javac" -cp .;./bin;./tools/junit.jar -d %BINDIR% @sourcefiles
 )
