@@ -1,11 +1,11 @@
 ﻿= Documentation Technique Projet OPTI
 :Author:  Groupe projet 3B2
-:doctitle: Documentation Technique SPRINT 0
+:doctitle: Documentation Technique SPRINT 1
 :slideshowlocation: Your computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :toc: right
 :toc-title: Sommaire
-:revnumber: 0
+:revnumber: 1
 
 include::docConf.txt[]
 
@@ -62,9 +62,9 @@ Une ArrayList de tableau de String créer et sauvegarde un fichier CSV.
 
 === Parcours :
 
-L'interface et la librairie du SPRINT 0 sont terminées, le programme de test pour  la librairie est en cours de développement.
+L'interface et la librairie du SPRINT 1 sont terminées, le programme de test pour  la librairie est en cours de développement.
 
-=== Backlog produit SPRINT 0 :
+=== Backlog produit SPRINT 1 :
 
 [options="header"]
 |====================================================================================
@@ -72,7 +72,7 @@ L'interface et la librairie du SPRINT 0 sont terminées, le programme de test po
 v|Liste des sujets de projet tutoré de l’année : 
 - Créer/Supprimer/Modifier un sujet
 - Lister les sujets avec filtres                           
-|0%
+|100%
 v|Voeux des groupes d'étudiants :
 - Définir des groupes d'étudiants
 - Associer des étudiants à des groupes
@@ -97,7 +97,7 @@ v|Affectation des intervenants sur chaque projet tutoré :
 
 Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.
 
-Ceci est le SPRINT 0.
+Ceci est le SPRINT 1.
 
 === Supports
 
