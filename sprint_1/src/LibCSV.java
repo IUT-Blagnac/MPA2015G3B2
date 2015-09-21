@@ -51,19 +51,54 @@ public class LibCSV {
 		}
 	}
 	
+	public static void ajouter(String newLine, String filepath)throws Exception{
+		if(!filepath.endsWith(".csv"))
+			throw new Exception("ERREUR Le fichier n'est pas sous format CSV");
+		ArrayList<String> csv = read(filepath);
+		if(!isLengthOK(csv.get(0),newLine))
+			throw new Exception("ERREUR La ligne ajouter contient trop de colonne");
+		int indice = csv.size()-1;
+		while(newLine.compareTo(csv.get(indice))<=0 && indice>0){
+			System.out.println(newLine.compareTo(csv.get(indice)));
+			if(newLine.compareTo(csv.get(indice))==0)
+				throw new Exception("ERREUR La ligne existe deja");
+			indice --;
+		}
+		csv.add(indice+1,newLine);
+		save(csv,filepath);
+	}
 	
+	
+	
+	private static boolean isLengthOK(String aString, String anotherString){
+		String[] aTab;
+		String[] anotherTab;
+		aTab = aString.split(";");
+		anotherTab = anotherString.split(";");
+		return (aTab.length == anotherTab.length);
+	}
 	
 	// Demonstration
 	public static void main(String[] args){
+		String file = "csv/test.csv";
+		/*
 		ArrayList<String> al = new ArrayList<String>();
 		String ligne1 ="Nom;Prenom;Date de Naissance";
 		String ligne2 ="Paul;Henry;02/45/1962";
 		al.add(ligne1);
 		al.add(ligne2);
 		try{
-			save(al,"test.csv");
-			al = read("test.csv");
+			save(al,file);
+			al = read(file);
 			System.out.println(al.get(0)+"\n"+al.get(1));
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		*/
+		
+		String ligne = "Dean;Baptiste;02/08/1996";
+		try{
+			ajouter(ligne, file);
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
