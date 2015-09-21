@@ -1,0 +1,109 @@
+﻿= Documentation Technique Projet OPTI
+:Author:  Groupe projet 3B2
+:doctitle: Documentation Technique SPRINT 0
+:slideshowlocation: Your computer
+:copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
+:toc: right
+:toc-title: Sommaire
+:revnumber: 0
+
+include::docConf.txt[]
+
+image::logo.png[link="logo.png",width="30%"]
+
+== Présentation 
+
+=== Sujet :
+
+Le but du projet OPTI est de fournir une application de gestion de projets tutorés informatiques.
+
+=== Organisation du groupe :
+
+Pour mener ce projet à bout, nous avons formé un équipe de 6 personnes. Nous allons utiliser la méthode agile SRCUM 
+pour être le plus efficace possible. Chaque semaine, nous effectuons un sprint où chaque membre a une tâche assignée.
+Nous devons fournir un recette à la fin de chaque sprint pour montrer notre avancée au client.  
+
+=== Membres du projet :
+
+[options="header"]
+|=======================================================================
+|Membres            |Rôle                        |Contact
+|Simon TAILLEFER    |SCRUM Master  |simon.taillefer@etu.univ-tlse2.fr
+|Guilhem SABATHIER  |Développeur   |guilhem.sabathier@etu.univ-tlse2.fr
+|Florian SEGUIN     |Développeur   |florian.seguin@etu.univ-tlse2.fr
+|Cédric DOULIEZ     |Développeur   |cedric.douliez@etu.univ-tlse2.fr
+|Antoine BADOC      |Développeur   |antoine.badoc@etu.univ-tlse2.fr
+|Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
+|=======================================================================
+
+== Interface graphique
+
+=== Présentation :
+
+image::interface.png[link="interface.png",width="20%"]
+
+Voici l'onglet "A propos" de l'interface graphique. 
+
+On peut changer d'onglet avec Test et on peut quitter l'application avec le bouton cliquer qui propose une confirmation.
+
+=== Code JAVA
+
+link:{src}sprint0.java[Code de l'interface graphique] 
+
+Pour l'interface, nous utilisons des JPanel et des JLabel pour créer le contenu des onglets. (cf commentaires JAVA).
+
+== Code source
+
+link:{src}LibCSV.java[Code de la librairie CSV]
+
+Une ArrayList de tableau de String créer et sauvegarde un fichier CSV.
+
+== Conclusion 
+
+=== Parcours :
+
+L'interface et la librairie du SPRINT 0 sont terminées, le programme de test pour  la librairie est en cours de développement.
+
+=== Backlog produit SPRINT 0 :
+
+[options="header"]
+|====================================================================================
+|Exigences                                            |Réalisation
+v|Liste des sujets de projet tutoré de l’année : 
+- Créer/Supprimer/Modifier un sujet
+- Lister les sujets avec filtres                           
+|0%
+v|Voeux des groupes d'étudiants :
+- Définir des groupes d'étudiants
+- Associer des étudiants à des groupes
+- Définir les voeux d’un groupe                                 
+|0%
+v|Affectation des projets aux groupes d'étudiants :
+- Définir (affectation) un sujet pour un groupe
+- Lister le nombre de voeux par rang pour un sujet 
+- Lister pour un groupe le nombre de "concurrents" par rang de voeux
+- Lister les sujets affectés / non affectés
+- Lister les groupes affectés / non affectés
+- Calcul automatique de pré-affectation "au mieux" sur un ensemble de groupes non affectés                                 
+|0%
+v|Affectation des intervenants sur chaque projet tutoré :
+- Définir les intervenants d’un projet tutoré 
+- Lister les projets par intervenant
+- Lister les intervenants par projet             
+|0%
+|====================================================================================
+
+=== A propos
+
+Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.
+
+Ceci est le SPRINT 0.
+
+=== Supports
+
+* Contactez <simon.taillefer@etu.univ-tlse2.fr>
+* Lien vers notre établissement : http://www.iut-blagnac.fr/[IUT de Blagnac]
+* Ou vers l'université : http://www.univ-tlse2.fr//[Université Toulouse 2]
+* L'application a été développée en https://www.java.com/fr/[Java]
+
+~© COO S3 Groupe 3B2 2015 | Réalisé par G3B2 | Tous droits réservés.~ 
