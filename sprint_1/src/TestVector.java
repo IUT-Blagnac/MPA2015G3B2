@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Vector;
+
 import javax.swing.*;
 
 class MyJFrame extends JFrame{
@@ -27,15 +28,25 @@ class MyJFrame extends JFrame{
         this.theJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         // On met les données dans la JList
-        this.theJList.setListData(LibCSV.read(filepath));
+        //this.theJList.setListData(LibCSV.read(filepath));
+        this.theJList.setListData(this.getValues());
         
         // On met la JList dans la JScrollPane
         this.scrollPane.setViewportView(this.theJList);
-        
+    }    
+        private Vector<String> getValues() {
+            Vector<String> v;
+            // Créer les valeurs (ici des chaines) que l'on veut afficher
+            v = new Vector<String>();
+            v.add("Test");
+            v.add("Swag");
+            v.add("Retest");
+            return v;
     }
+        
     public class TestVector {
         public void main(String[] args) {
-                MyJFrame maFen = new MyJFrame("titre", "jean");
+                MyJFrame maFen = new MyJFrame("titre");
                 maFen.setVisible(true);
         }
     }   
