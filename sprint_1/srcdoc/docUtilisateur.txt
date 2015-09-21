@@ -1,4 +1,4 @@
-= Documentation Utilisateur Projet OPTI
+﻿= Documentation Utilisateur Projet OPTI
 :Author:  Groupe projet 3B2
 :doctitle: Documentation Utilisateur SPRINT 0
 :slideshowlocation: Your computer
@@ -50,11 +50,8 @@ On peut changer d'onglet avec Test et on peut quitter l'application avec le bout
 
 Une interface graphique minimale est disponible où vous pouvez cliquer sur un onglet "A propos" concernant l'équipe du projet.
 
-En ce qui concerne la librairie permettant de lire et sauvegarder un fichier CSV, elle fonctionne.
 
-Le programme de test de la librairie est en cours de développement. 
-
-=== Backlog produit SPRINT 0 :
+=== Backlog produit SPRINT 1 :
 
 [options="header"]
 |====================================================================================
@@ -87,7 +84,7 @@ v|Affectation des intervenants sur chaque projet tutoré :
 
 Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.
 
-Ceci est le SPRINT 0.
+Ceci est le SPRINT 1.
 
 === Supports
 
