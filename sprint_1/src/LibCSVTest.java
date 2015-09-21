@@ -14,7 +14,7 @@ public class LibCSVTest extends TestCase {
 	}
 
 	public void test_read_preconditions() throws IOException {
-	    String file = "test.txt";
+	    String file = "csv/test.txt";
 
 		try {
 			FileInputStream fw = new FileInputStream(file);
@@ -29,7 +29,7 @@ public class LibCSVTest extends TestCase {
 	}
 
 	public void test_save_preconditions() throws IOException {
-	    String file = "test.csv";
+	    String file = "csv/test.csv";
 
 	    boolean exception = false ;
 	    try { LibCSV.save(null,file) ; }
@@ -38,7 +38,7 @@ public class LibCSVTest extends TestCase {
 	    assertTrue("LibCSV.save(null, file) leve une exception", exception);
 
 	    file = "test.txt";
-		ArrayList<String[]> al = new ArrayList<String[]>();
+		ArrayList<String> al = new ArrayList<String>();
 
 	    exception = false ;
 	    try { LibCSV.save(al,file) ; }
