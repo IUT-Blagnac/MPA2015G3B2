@@ -23,48 +23,7 @@ Pour mener ce projet à bout, nous avons formé un équipe de 6 personnes. Nous 
 pour être le plus efficace possible. Chaque semaine, nous effectuons un sprint où chaque membre a une tâche assignée.
 Nous devons fournir un recette à la fin de chaque sprint pour montrer notre avancée au client.  
 
-=== Membres du projet :
-
-[options="header"]
-|=======================================================================
-|Membres            |Rôle                        |Contact
-|Simon TAILLEFER    |SCRUM Master  |simon.taillefer@etu.univ-tlse2.fr
-|Guilhem SABATHIER  |Développeur   |guilhem.sabathier@etu.univ-tlse2.fr
-|Florian SEGUIN     |Développeur   |florian.seguin@etu.univ-tlse2.fr
-|Cédric DOULIEZ     |Développeur   |cedric.douliez@etu.univ-tlse2.fr
-|Antoine BADOC      |Développeur   |antoine.badoc@etu.univ-tlse2.fr
-|Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
-|=======================================================================
-
-== Interface graphique
-
-=== Présentation :
-
-image::interface.png[link="interface.png",width="20%"]
-
-Voici l'onglet "A propos" de l'interface graphique. 
-
-On peut changer d'onglet avec Test et on peut quitter l'application avec le bouton cliquer qui propose une confirmation.
-
-=== Code JAVA
-
-link:{src}Sprint.java[Code de l'interface graphique] 
-
-Pour l'interface, nous utilisons des JPanel et des JLabel pour créer le contenu des onglets. (cf commentaires JAVA).
-
-== Code source
-
-link:{src}LibCSV.java[Code de la librairie CSV]
-
-Une ArrayList de tableau de String créer et sauvegarde un fichier CSV.
-
-== Conclusion 
-
-=== Parcours :
-
-L'interface et la librairie du SPRINT 1 sont terminées, le programme de test pour  la librairie est en cours de développement.
-
-=== Backlog produit SPRINT 1 :
+=== Backlog Produit : 
 
 [options="header"]
 |====================================================================================
@@ -92,6 +51,62 @@ v|Affectation des intervenants sur chaque projet tutoré :
 - Lister les intervenants par projet             
 |0%
 |====================================================================================
+
+Backlog SPRINT 1 :
+
+[options="header"]
+|====================================================================================
+|Exigences                                            |Réalisation
+v|Créer / Supprimer un sujet :                            
+|100%
+v|Modifier un sujet :                                 
+|0%
+v|IHM :                                
+|0%
+v|Documentations technique et utilisateur :            
+|50%
+|====================================================================================
+
+=== Membres du projet :
+
+[options="header"]
+|=======================================================================
+|Membres            |Rôle                        |Contact
+|Simon TAILLEFER    |SCRUM Master  |simon.taillefer@etu.univ-tlse2.fr
+|Guilhem SABATHIER  |Développeur   |guilhem.sabathier@etu.univ-tlse2.fr
+|Florian SEGUIN     |Développeur   |florian.seguin@etu.univ-tlse2.fr
+|Cédric DOULIEZ     |Développeur   |cedric.douliez@etu.univ-tlse2.fr
+|Antoine BADOC      |Développeur   |antoine.badoc@etu.univ-tlse2.fr
+|Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
+|=======================================================================
+
+== Interface graphique
+
+=== Présentation :
+
+image::interface.png[link="interface.png",width="20%"]
+
+Quand on clique sur l'onglet "A propos" de l'application, on doit voir les informations sur le projet et le groupe qui développe l'application.
+
+Si l'on clique sur l'onglet "Sujets", une liste de sujet doit apparaître avec les boutons "Créer", "Supprimer", "Modifier".
+
+=== Code JAVA
+
+link:{src}Sprint.java[Code de l'interface graphique] 
+
+Pour l'interface, nous utilisons des JPanel et des JLabel pour créer le contenu des onglets. (cf commentaires JAVA).
+
+== Code source
+
+link:{src}LibCSV.java[Code de la librairie CSV]
+
+Une ArrayList de tableau de String créer et sauvegarde un fichier CSV.
+
+== Conclusion 
+
+=== Parcours :
+
+L'interface du SPRINT 1 est terminée, 
 
 === A propos
 
