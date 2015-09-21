@@ -1,6 +1,6 @@
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -34,16 +34,6 @@ public class Sprint {
 
 		//Crée la zone de texte
 		JLabel apropos = new JLabel();
-		JLabel sujets = new JLabel();
-		JPanel zoneboutton = new JPanel();
-		sujets.setLayout(new CardLayout());
-		JButton creersujet = new JButton("Créer un sujet");
-		JButton modifiersujet = new JButton("Modifier un sujet");
-		JButton supprimersujet = new JButton("Supprimer un sujet");
-		zoneboutton.add(creersujet);
-		zoneboutton.add(modifiersujet);
-		zoneboutton.add(supprimersujet);
-		sujets.add(zoneboutton, BorderLayout.PAGE_END);
 		//Crée la bouton Quitter
 		JButton quitter = new JButton("Quitter");
 		//Ajoute au bouton "Quitter", l'écouteur
@@ -55,6 +45,20 @@ public class Sprint {
 				+ "- Antoine BADOC <br>" + "- Mickael BAUTISTA <br>"
 				+ "Université Toulouse 2 <br>" + "DUT de Blagnac <br>"
 				+ "Projet OPTI <br>");
+		
+		
+		JPanel sujets = new JPanel(new BorderLayout());
+		JPanel Centre = new JPanel();
+		JPanel Sud = new JPanel(new FlowLayout());
+		JButton creersujet = new JButton("Créer un sujet");
+		JButton modifiersujet = new JButton("Modifier un sujet");
+		JButton supprimersujet = new JButton("Supprimer un sujet");
+		Sud.add(creersujet);
+		Sud.add(modifiersujet);
+		Sud.add(supprimersujet);
+		
+		
+		
 		//Ajout de l'élement dans les onglets
 		tabbedPane.addTab("Sujets", sujets);
 		tabbedPane.addTab("A propos", apropos);
