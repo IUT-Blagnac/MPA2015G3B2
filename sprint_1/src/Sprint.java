@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
-public class sprint0 {
+public class Sprint {
 	public static void main(String[] args) {
 		//Fabrique la fenetre
 		JFrame fenetre = new JFrame();
