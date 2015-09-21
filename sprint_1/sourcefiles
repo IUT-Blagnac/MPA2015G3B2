@@ -1,7 +1,4 @@
 ./src/HelloMonde.java
-./src/HelloMondeTest.java
 ./src/Lib.java
 ./src/LibCSV.java
-./src/LibCSVTest.java
-./src/LibTest.java
 ./src/Sprint.java

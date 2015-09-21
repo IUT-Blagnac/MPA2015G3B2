@@ -10,10 +10,10 @@ set DOCDIR=./doc/
 set MAKETEST=1
 
 @echo ///////////////////////////////////////////////////////
-@echo // COMPILATION des executables et des tests
+@echo // COMPILATION des executables
 @echo ///////////////////////////////////////////////////////
 if "%MAKETEST%"=="1" (
-  "%JAVA_HOME%\bin\javac" -cp .;./bin;./tools/junit.jar -d %BINDIR% @sourcefiles
+  "%JAVA_HOME%\bin\javac" -cp . -d %BINDIR% @sourcefiles
 )
 
 @echo ///////////////////////////////////////////////////////
@@ -23,6 +23,13 @@ if "%MAKETEST%"=="1" (
 
 python %ASCIIDOCDIR%asciidoc.py -a source-highlighter=pygments -o %SRCDOCDIR%doc.html %SRCDOCDIR%doc.txt
 python %ASCIIDOCDIR%asciidoc.py -a source-highlighter=pygments -o %SRCDOCDIR%docU.html %SRCDOCDIR%docU.txt
+
+@echo ///////////////////////////////////////////////////////
+@echo // COMPILATION des tests
+@echo ///////////////////////////////////////////////////////
+if "%MAKETEST%"=="1" (
+  "%JAVA_HOME%\bin\javac" -cp .;./tools/junit.jar -d %BINDIR% @testfiles
+)
 
 @echo ///////////////////////////////////////////////////////
 @echo // EXECUTION des tests
