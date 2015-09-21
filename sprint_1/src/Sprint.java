@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 public class Sprint {
@@ -30,23 +32,32 @@ public class Sprint {
 			}
 		};
 
+		//Crée la zone de texte
+		JLabel apropos = new JLabel();
+		JLabel sujets = new JLabel();
+		JPanel zoneboutton = new JPanel();
+		sujets.setLayout(new CardLayout());
+		JButton creersujet = new JButton("Créer un sujet");
+		JButton modifiersujet = new JButton("Modifier un sujet");
+		JButton supprimersujet = new JButton("Supprimer un sujet");
+		zoneboutton.add(creersujet);
+		zoneboutton.add(modifiersujet);
+		zoneboutton.add(supprimersujet);
+		sujets.add(zoneboutton, BorderLayout.PAGE_END);
 		//Crée la bouton Quitter
 		JButton quitter = new JButton("Quitter");
-		//Crée la zone de texte
-		JLabel test = new JLabel();
-		JLabel rien = new JLabel();
 		//Ajoute au bouton "Quitter", l'écouteur
 		quitter.addActionListener(actionListener);
 		//Définit le texte dans le Jlabel
-		test.setText("<HTML>Liste des membres du groupe : <br>"
+		apropos.setText("<HTML>Liste des membres du groupe : <br>"
 				+ "- Florian SEGUIN <br>" + "- Guilhem SABATHIER <br>"
 				+ "- Cedric DOULIEZ <br>" + "- Simon TAILLEFER <br>"
 				+ "- Antoine BADOC <br>" + "- Mickael BAUTISTA <br>"
 				+ "Université Toulouse 2 <br>" + "DUT de Blagnac <br>"
 				+ "Projet OPTI <br>");
 		//Ajout de l'élement dans les onglets
-		tabbedPane.addTab("Test", rien);
-		tabbedPane.addTab("A propos", test);
+		tabbedPane.addTab("Sujets", sujets);
+		tabbedPane.addTab("A propos", apropos);
 		//Mise en place des éléments
 		pane.add(quitter, BorderLayout.PAGE_END);
 		pane.add(tabbedPane);
