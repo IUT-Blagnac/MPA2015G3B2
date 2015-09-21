@@ -48,7 +48,7 @@ On peut changer d'onglet avec Test et on peut quitter l'application avec le bout
 
 === Code JAVA
 
-link:{src}sprint0.java[Code de l'interface graphique] 
+link:{src}Sprint.java[Code de l'interface graphique] 
 
 Pour l'interface, nous utilisons des JPanel et des JLabel pour créer le contenu des onglets. (cf commentaires JAVA).
 
