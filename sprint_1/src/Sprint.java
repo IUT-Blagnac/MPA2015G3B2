@@ -7,9 +7,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
 
 public class Sprint {
 	public static void main(String[] args) {
@@ -48,14 +53,21 @@ public class Sprint {
 		
 		
 		JPanel sujets = new JPanel(new BorderLayout());
-		JPanel Centre = new JPanel();
 		JPanel Sud = new JPanel(new FlowLayout());
 		JButton creersujet = new JButton("Créer un sujet");
 		JButton modifiersujet = new JButton("Modifier un sujet");
 		JButton supprimersujet = new JButton("Supprimer un sujet");
+		JList<String> Centre = new JList<String>();
+		JScrollPane elderscrolls = new JScrollPane();
+		Centre.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		elderscrolls.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		elderscrolls.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		elderscrolls.setViewportView(Centre);
 		Sud.add(creersujet);
 		Sud.add(modifiersujet);
 		Sud.add(supprimersujet);
+		sujets.add(Sud, BorderLayout.SOUTH);
+		sujets.add(elderscrolls,BorderLayout.CENTER);
 		
 		
 		
@@ -67,6 +79,34 @@ public class Sprint {
 		pane.add(tabbedPane);
 		fenetre.pack();
 		fenetre.setVisible(true);
+		
+		ActionListener action = new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getActionCommand().equals("Créer un sujet")) {
+					JFrame creer = new JFrame();
+					JPanel Topcreer = new JPanel(new BorderLayout());
+					JPanel Botcreer = new JPanel(new BorderLayout());
+					JLabel nomnomsujet = new JLabel("Nom du Sujet : ");
+					JLabel nomtitre = new JLabel("Titre : ");
+					JTextField nomsujet = new JTextField();
+					JTextField titre = new JTextField();
+					creer.setLayout(new BorderLayout());
+					Topcreer.add(nomnomsujet, BorderLayout.NORTH);
+					Topcreer.add(nomsujet, BorderLayout.CENTER);
+					Botcreer.add(nomtitre, BorderLayout.NORTH);
+					Botcreer.add(titre, BorderLayout.CENTER);
+					creer.add(Topcreer, BorderLayout.NORTH);
+					creer.add(Botcreer, BorderLayout.CENTER);
+					creer.setVisible(true);
+					creer.pack();
+					
+				}
+			}
+			
+		};
+		
+		creersujet.addActionListener(action);
+		
 	}
 
 
