@@ -23,6 +23,50 @@ Pour mener ce projet à bout, nous avons formé un équipe de 6 personnes. Nous 
 pour être le plus efficace possible. Chaque semaine, nous effectuons un sprint où chaque membre a une tâche assignée.
 Nous devons fournir un recette à la fin de chaque sprint pour montrer notre avancée au client.  
 
+=== Backlog Produit : 
+
+[options="header"]
+|====================================================================================
+|Exigences                                            |Réalisation
+v|Liste des sujets de projet tutoré de l’année : 
+- Créer/Supprimer/Modifier un sujet
+- Lister les sujets avec filtres                           
+|100%
+v|Voeux des groupes d'étudiants :
+- Définir des groupes d'étudiants
+- Associer des étudiants à des groupes
+- Définir les voeux d’un groupe                                 
+|0%
+v|Affectation des projets aux groupes d'étudiants :
+- Définir (affectation) un sujet pour un groupe
+- Lister le nombre de voeux par rang pour un sujet 
+- Lister pour un groupe le nombre de "concurrents" par rang de voeux
+- Lister les sujets affectés / non affectés
+- Lister les groupes affectés / non affectés
+- Calcul automatique de pré-affectation "au mieux" sur un ensemble de groupes non affectés                                 
+|0%
+v|Affectation des intervenants sur chaque projet tutoré :
+- Définir les intervenants d’un projet tutoré 
+- Lister les projets par intervenant
+- Lister les intervenants par projet             
+|0%
+|====================================================================================
+
+Backlog SPRINT 1 :
+
+[options="header"]
+|====================================================================================
+|Exigences                                            |Réalisation
+v|Créer / Supprimer un sujet :                            
+|100%
+v|Modifier un sujet :                                 
+|0%
+v|IHM :                                
+|30%
+v|Documentations technique et utilisateur :            
+|50%
+|====================================================================================
+
 === Membres du projet :
 
 [options="header"]
@@ -50,35 +94,7 @@ On peut changer d'onglet avec Test et on peut quitter l'application avec le bout
 
 Une interface graphique minimale est disponible où vous pouvez cliquer sur un onglet "A propos" concernant l'équipe du projet.
 
-
-=== Backlog produit SPRINT 1 :
-
-[options="header"]
-|====================================================================================
-|Exigences                                            |Réalisation
-v|Liste des sujets de projet tutoré de l’année : 
-- Créer/Supprimer/Modifier un sujet
-- Lister les sujets avec filtres                           
-|0%
-v|Voeux des groupes d'étudiants :
-- Définir des groupes d'étudiants
-- Associer des étudiants à des groupes
-- Définir les voeux d’un groupe                                 
-|0%
-v|Affectation des projets aux groupes d'étudiants :
-- Définir (affectation) un sujet pour un groupe
-- Lister le nombre de voeux par rang pour un sujet 
-- Lister pour un groupe le nombre de "concurrents" par rang de voeux
-- Lister les sujets affectés / non affectés
-- Lister les groupes affectés / non affectés
-- Calcul automatique de pré-affectation "au mieux" sur un ensemble de groupes non affectés                                 
-|0%
-v|Affectation des intervenants sur chaque projet tutoré :
-- Définir les intervenants d’un projet tutoré 
-- Lister les projets par intervenant
-- Lister les intervenants par projet             
-|0%
-|====================================================================================
+Un nouvel onglet "Sujets" est disponible où l'on peut ajouter, supprimer ou modifier des sujets. 
 
 === A propos
 

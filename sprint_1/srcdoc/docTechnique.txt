@@ -90,6 +90,8 @@ Quand on clique sur l'onglet "A propos" de l'application, on doit voir les infor
 
 Si l'on clique sur l'onglet "Sujets", une liste de sujet doit apparaître avec les boutons "Créer", "Supprimer", "Modifier".
 
+Quand on clique sur "Créer", une nouvelle fenêtre s'ouvre avec un formulaire à 2 champs où il faut remplir avec le nom et la description du sujet.
+
 === Code JAVA
 
 link:{src}Sprint.java[Code de l'interface graphique] 
