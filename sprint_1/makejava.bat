@@ -8,20 +8,22 @@ set RUNTEST=1
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION de la librairie
 @echo ///////////////////////////////////////////////////////
-javac -cp .;%BINDIR% -d %BINDIR% %SRCDIR%OPTIlib.java
-javac -cp .;%BINDIR%;./tools/junit.jar -d %BINDIR% %SRCDIR%OPTIlibTest.java
+javac -cp .;%BINDIR% -d %BINDIR% @javafiles
+javac -cp .;%BINDIR%;./tools/junit.jar -d %BINDIR% @testfiles
 
 @echo ///////////////////////////////////////////////////////
 @echo // COMPILATION de l'IHM
 @echo ///////////////////////////////////////////////////////
-javac -cp .;%BINDIR% -d %BINDIR% %SRCDIR%OPTI.java
+javac -cp .;%BINDIR% -d %BINDIR% @ihmfiles
 
 @echo ///////////////////////////////////////////////////////
 @echo // EXECUTION des tests
 @echo ///////////////////////////////////////////////////////
 if "%RUNTEST%"=="1" (
  cd %BINDIR%
- java -cp .;../tools/junit.jar OPTIlibTest
+  java -cp .;../tools/junit.jar HelloMondeTest
+  java -cp .;../tools/junit.jar LibTest
+  java -cp .;../tools/junit.jar LibCSVTest
  cd %SPRINTDIR%
 )
 

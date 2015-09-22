@@ -9,30 +9,24 @@ import java.util.ArrayList;
 
 public class LibCSV {
 	
-	public static Object[][] readAll(String filepath)throws Exception{
+	public static String[] readTitles(String filepath)throws Exception{
 		if(!filepath.endsWith(".csv"))
 			throw new Exception("ERREUR Le fichier n'est pas sous format CSV");
-		ArrayList<String[]> al = new ArrayList<String[]>();
-		Object[][] csv;
-		String[] colonne;
+		String[] title = null;
 		try{
 			InputStream ips=new FileInputStream(filepath);
 			InputStreamReader ipsr=new InputStreamReader(ips);
 			BufferedReader br=new BufferedReader(ipsr);
 			
 			String ligne;
-			while ((ligne=br.readLine())!=null){
-				colonne = ligne.split(";");
-				al.add(colonne);
+			if((ligne=br.readLine())!=null){
+				title = ligne.split(";");
 			}
 			br.close();
 		}catch (Exception e){
 			throw new Exception(e.toString());
 		}
-		csv = new Object[al.size()][0];
-		for(int i=0; i<al.size(); i++)
-			csv[i] = al.get(i);
-		return csv;
+		return title;
 	}
 	
 	public static Object[][] readValues(String filepath)throws Exception{
@@ -42,6 +36,7 @@ public class LibCSV {
 		Object[][] csv;
 		String[] colonne;
 		try{
+			
 			InputStream ips=new FileInputStream(filepath);
 			InputStreamReader ipsr=new InputStreamReader(ips);
 			BufferedReader br=new BufferedReader(ipsr);
@@ -57,8 +52,12 @@ public class LibCSV {
 			throw new Exception(e.toString());
 		}
 		csv = new Object[al.size()][0];
-		for(int i=0; i<al.size(); i++)
+		colonne = readTitles(filepath);
+		for(int i=0; i<al.size(); i++){
+			if(al.get(i).length != colonne.length)
+				throw new Exception("ERREUR Le nombre de colonne varie");
 			csv[i] = al.get(i);
+		}
 		return csv;
 	}
 	
@@ -87,24 +86,30 @@ public class LibCSV {
 		}
 	}
 	
-	public static String[] readTitle(String filepath)throws Exception{
+	public static Object[][] readAll(String filepath)throws Exception{
 		if(!filepath.endsWith(".csv"))
 			throw new Exception("ERREUR Le fichier n'est pas sous format CSV");
-		String[] title = null;
+		ArrayList<String[]> al = new ArrayList<String[]>();
+		Object[][] csv;
+		String[] colonne;
 		try{
 			InputStream ips=new FileInputStream(filepath);
 			InputStreamReader ipsr=new InputStreamReader(ips);
 			BufferedReader br=new BufferedReader(ipsr);
 			
 			String ligne;
-			if((ligne=br.readLine())!=null){
-				title = ligne.split(";");
+			while ((ligne=br.readLine())!=null){
+				colonne = ligne.split(";");
+				al.add(colonne);
 			}
 			br.close();
 		}catch (Exception e){
 			throw new Exception(e.toString());
 		}
-		return title;
+		csv = new Object[al.size()][0];
+		for(int i=0; i<al.size(); i++)
+			csv[i] = al.get(i);
+		return csv;
 	}
 	
 	// Demonstration

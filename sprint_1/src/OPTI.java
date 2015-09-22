@@ -1,23 +1,124 @@
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
-import javax.swing.ScrollPaneConstants;
 
-public class Sprint {
+public class OPTI extends JFrame{
+	
+	private static final long serialVersionUID = 1L;
+	
+	public OPTI(String title){
+		super(title);
+		this.setLayout(new BorderLayout());
+		addTabbedPane();
+		addQuitButton();
+		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		this.addWindowListener(
+	    		  new WindowAdapter(){
+	    		    public void windowClosing(WindowEvent e) {
+	    		    	if (JOptionPane.showConfirmDialog(new JOptionPane(),
+	    						"Voulez-vous vraiment quitter ?") == 0) {
+	    					System.exit(0);
+	    				}
+	    		    }
+	    		  });
+	}
+	
+	private void addTabbedPane(){
+		JTabbedPane tabbedPane = new JTabbedPane();
+		String sujet = "csv/sujets2014_2015.csv";
+		String etudiant = "csv/etudiants2014_2015.csv";
+		String intervenant = "csv/intervenants2014_2015.csv";
+		String projet = "csv/projets2014_2015.csv";
+		try{
+		tabbedPane.addTab("Etudiants", new OPTITableau(LibCSV.readValues(etudiant), LibCSV.readTitles(etudiant)));
+		tabbedPane.addTab("Sujets", new OPTITableau(LibCSV.readValues(sujet), LibCSV.readTitles(sujet)));
+		tabbedPane.addTab("Intervenants", new OPTITableau(LibCSV.readValues(intervenant), LibCSV.readTitles(intervenant)));
+		//NE FONCTIONNE PAS//tabbedPane.addTab("Projets", new OPTITableau(LibCSV.readValues(projet), LibCSV.readTitles(projet)));
+		tabbedPane.addTab("A propos", new JLabel("<HTML>Liste des membres du groupe : <br>"
+				+ "- Florian SEGUIN <br>" + "- Guilhem SABATHIER <br>"
+				+ "- Cedric DOULIEZ <br>" + "- Simon TAILLEFER <br>"
+				+ "- Antoine BADOC <br>" + "- Mickael BAUTISTA <br>"
+				+ "Université Toulouse 2 <br>" + "IUT de Blagnac <br>"
+				+ "DUT INFO S3/Module MPA <br>" + "Projet OPTI <br>"
+				+ "SPRINT 1"));
+		this.add(tabbedPane, BorderLayout.CENTER);
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(this, e.toString());
+		}
+	}
+	
+	private void addQuitButton(){
+		JPanel southPane = new JPanel(new BorderLayout());
+			JButton quitter = new JButton("Quitter");
+			quitter.addActionListener(new Quitter());
+		southPane.add(quitter, BorderLayout.CENTER);
+		this.add(southPane, BorderLayout.SOUTH);
+	}
+	
+	class Action implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			final JFrame creer = new JFrame("Ajout d'un sujet");
+			if (e.getActionCommand().equals("Créer un sujet")) {
+				ActionListener actioninaction = new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (e.getActionCommand().equals("Annuler")) {
+							creer.dispose();
+						}
+					}
+				};
+				JPanel Topcreer = new JPanel(new BorderLayout());
+				JPanel Centrecreer = new JPanel(new BorderLayout());
+				JPanel Botcreer = new JPanel(new FlowLayout());
+				JLabel nomnomsujet = new JLabel("Nom du Sujet : ");
+				JLabel nomtitre = new JLabel("Titre : ");
+				JButton validbouton = new JButton("Valider");
+				JButton annulbouton = new JButton("Annuler");
+				JTextField nomsujet = new JTextField();
+				JTextField titre = new JTextField();
+				creer.setLayout(new BorderLayout());
+				Botcreer.add(validbouton);
+				Botcreer.add(annulbouton);
+				Topcreer.add(nomnomsujet, BorderLayout.NORTH);
+				Topcreer.add(nomsujet, BorderLayout.CENTER);
+				Centrecreer.add(nomtitre, BorderLayout.NORTH);
+				Centrecreer.add(titre, BorderLayout.CENTER);
+				creer.add(Topcreer, BorderLayout.NORTH);
+				creer.add(Centrecreer, BorderLayout.CENTER);
+				creer.add(Botcreer, BorderLayout.SOUTH);
+				creer.setVisible(true);
+				creer.pack();
+				annulbouton.addActionListener(actioninaction);				
+			}
+		}
+	}
+	
+	class Quitter implements ActionListener{
+		public void actionPerformed(ActionEvent actionEvent) {
+			JOptionPane pan = new JOptionPane();
+			if (JOptionPane.showConfirmDialog(pan,
+					"Voulez-vous vraiment quitter ?") == 0) {
+				System.exit(0);
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
+		OPTI f = new OPTI("test");
+		f.setLocationRelativeTo(null);
+		f.pack();
+		f.setVisible(true);
+		/*
 		//Fabrique la fenetre
 		JFrame fenetre = new JFrame("OTPI PROJET");
 		//Conteneur des onglets
@@ -148,7 +249,7 @@ public class Sprint {
 			
 		};
 		creersujet.addActionListener(action);
-		
+		*/
 	}
 
 
