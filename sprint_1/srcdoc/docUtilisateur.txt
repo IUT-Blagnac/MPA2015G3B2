@@ -64,7 +64,7 @@ v|Modifier un sujet :
 v|IHM :                                
 |60%
 v|Documentations technique et utilisateur :            
-|60%
+|70%
 |====================================================================================
 
 === Membres du projet :
