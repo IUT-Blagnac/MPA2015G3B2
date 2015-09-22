@@ -28,7 +28,7 @@ class MyJFrame extends JFrame{
         this.theJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         // On met les données dans la JList
-        this.theJList.setListData(LibCSV.read(filepath));
+        //this.theJList.setListData(LibCSV.read(filepath));
         
         // On met la JList dans la JScrollPane
         this.scrollPane.setViewportView(this.theJList);

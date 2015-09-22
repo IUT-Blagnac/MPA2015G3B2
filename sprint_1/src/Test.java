@@ -69,7 +69,7 @@ class MyJFrame extends JFrame {
                 Vector<String> v;
                 // Créer les valeurs (ici des chaines) que l'on veut afficher
                 v = new Vector<String>();
-                for (int i = 0; i < _nbValues; i	++) {
+                for (int i = 0; i < _nbValues; i++) {
                         v.add("Selectable value : " + i);
                 }
                 return v;
