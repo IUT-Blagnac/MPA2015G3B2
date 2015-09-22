@@ -28,8 +28,7 @@ class MyJFrame extends JFrame{
         this.theJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         // On met les données dans la JList
-        //this.theJList.setListData(LibCSV.read(filepath));
-        this.theJList.setListData(this.getValues());
+        this.theJList.setListData(LibCSV.read(filepath));
         
         // On met la JList dans la JScrollPane
         this.scrollPane.setViewportView(this.theJList);
@@ -46,7 +45,7 @@ class MyJFrame extends JFrame{
         
     public class TestVector {
         public void main(String[] args) {
-                MyJFrame maFen = new MyJFrame("titre");
+                MyJFrame maFen = new MyJFrame("titre", "filepath");
                 maFen.setVisible(true);
         }
     }   
