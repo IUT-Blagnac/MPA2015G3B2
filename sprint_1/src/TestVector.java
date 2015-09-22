@@ -1,8 +1,22 @@
 import java.awt.*;
+
+
 import java.awt.event.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Vector;
 
 import javax.swing.*;
+
+
+/*
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Vector;
+*/
 
 class MyJFrame extends JFrame{
 	private JList<String> theJList;
@@ -28,7 +42,8 @@ class MyJFrame extends JFrame{
         this.theJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         // On met les données dans la JList
-        this.theJList.setListData(LibCSV.read(filepath));
+        //this.theJList.setListData(LibCSV.read(filepath));
+        //List<String> kist = Files.readAllLines(Paths.get(filepath), Charset.defaultCharset());
         
         // On met la JList dans la JScrollPane
         this.scrollPane.setViewportView(this.theJList);

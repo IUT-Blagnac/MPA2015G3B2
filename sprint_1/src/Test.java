@@ -75,10 +75,10 @@ class MyJFrame extends JFrame {
                 return v;
         }
 } // Fin MaFen
-
+/*
 public class Test {
         public static void main(String[] args) {
-                MyJFrame maFen = new MyJFrame("titre", 50);
-                maFen.setVisible(true);
+               // MyJFrame maFen = new MyJFrame("titre", 50);
+                //maFen.setVisible(true);
         }
-}
+}*/
