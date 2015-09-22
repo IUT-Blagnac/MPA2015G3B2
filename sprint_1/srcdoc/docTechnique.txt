@@ -31,7 +31,7 @@ Nous devons fournir un recette à la fin de chaque sprint pour montrer notre ava
 v|Liste des sujets de projet tutoré de l’année : 
 - Créer/Supprimer/Modifier un sujet
 - Lister les sujets avec filtres                           
-|100%
+|20%
 v|Voeux des groupes d'étudiants :
 - Définir des groupes d'étudiants
 - Associer des étudiants à des groupes

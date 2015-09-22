@@ -58,7 +58,7 @@ Backlog SPRINT 1 :
 |====================================================================================
 |Exigences                                            |Réalisation
 v|Créer / Supprimer un sujet :                            
-|100%
+|20%
 v|Modifier un sujet :                                 
 |0%
 v|IHM :                                
