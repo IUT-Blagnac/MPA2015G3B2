@@ -1,6 +1,6 @@
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Vector;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -8,14 +8,14 @@ import junit.framework.TestSuite;
 public class LibCSVTest extends TestCase {
 
 	String finDeLigne = System.getProperty("line.separator");
+	String file = "csv/test.txt";
 
 	public static void main(String[] args) {
 	    junit.textui.TestRunner.run(new TestSuite(LibCSVTest.class));
 	}
 
 	public void test_read_preconditions() throws IOException {
-	    String file = "csv/test.txt";
-
+	    
 		try {
 			FileInputStream fw = new FileInputStream(file);
 			fw.close();
@@ -29,8 +29,7 @@ public class LibCSVTest extends TestCase {
 	}
 
 	public void test_save_preconditions() throws IOException {
-	    String file = "csv/test.csv";
-
+	    
 	    boolean exception = false ;
 	    try { LibCSV.save(null,file) ; }
 	    catch (Exception e) { exception = true ; };
@@ -38,12 +37,12 @@ public class LibCSVTest extends TestCase {
 	    assertTrue("LibCSV.save(null, file) leve une exception", exception);
 
 	    file = "test.txt";
-		ArrayList<String> al = new ArrayList<String>();
+		Vector<String[]> vec = new Vector<String[]>();
 
 	    exception = false ;
-	    try { LibCSV.save(al,file) ; }
+	    try { LibCSV.save(vec,file) ; }
 	    catch (Exception e) { exception = true ; };
 
-	    assertTrue("LibCSV.save(al, "+file+") leve une exception", exception);
+	    assertTrue("LibCSV.save(vec, "+file+") leve une exception", exception);
 	}
 }
