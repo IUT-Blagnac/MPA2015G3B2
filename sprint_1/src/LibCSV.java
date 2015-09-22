@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class LibCSV {
 	
-	public static Object[][] read(String filepath)throws Exception{
+	public static Object[][] readAll(String filepath)throws Exception{
 		if(!filepath.endsWith(".csv"))
 			throw new Exception("ERREUR Le fichier n'est pas sous format CSV");
 		ArrayList<String[]> al = new ArrayList<String[]>();
@@ -25,6 +25,33 @@ public class LibCSV {
 				colonne = ligne.split(";");
 				al.add(colonne);
 			}
+			br.close();
+		}catch (Exception e){
+			throw new Exception(e.toString());
+		}
+		csv = new Object[al.size()][0];
+		for(int i=0; i<al.size(); i++)
+			csv[i] = al.get(i);
+		return csv;
+	}
+	
+	public static Object[][] readValues(String filepath)throws Exception{
+		if(!filepath.endsWith(".csv"))
+			throw new Exception("ERREUR Le fichier n'est pas sous format CSV");
+		ArrayList<String[]> al = new ArrayList<String[]>();
+		Object[][] csv;
+		String[] colonne;
+		try{
+			InputStream ips=new FileInputStream(filepath);
+			InputStreamReader ipsr=new InputStreamReader(ips);
+			BufferedReader br=new BufferedReader(ipsr);
+			
+			String ligne;
+			if ((ligne=br.readLine())!=null)
+				while ((ligne=br.readLine())!=null){
+					colonne = ligne.split(";");
+					al.add(colonne);
+				}
 			br.close();
 		}catch (Exception e){
 			throw new Exception(e.toString());
@@ -60,8 +87,27 @@ public class LibCSV {
 		}
 	}
 	
-	// Demonstration
+	public static String[] readTitle(String filepath)throws Exception{
+		if(!filepath.endsWith(".csv"))
+			throw new Exception("ERREUR Le fichier n'est pas sous format CSV");
+		String[] title = null;
+		try{
+			InputStream ips=new FileInputStream(filepath);
+			InputStreamReader ipsr=new InputStreamReader(ips);
+			BufferedReader br=new BufferedReader(ipsr);
+			
+			String ligne;
+			if((ligne=br.readLine())!=null){
+				title = ligne.split(";");
+			}
+			br.close();
+		}catch (Exception e){
+			throw new Exception(e.toString());
+		}
+		return title;
+	}
 	
+	// Demonstration
 	public static void main(String[] args){
 		String file = "csv/test.csv";
 		
@@ -72,7 +118,7 @@ public class LibCSV {
 		csv[1]= ligne2;
 		try{
 			save(csv,file);
-			csv = read(file);
+			csv = readAll(file);
 			System.out.println(csv[0][0]+"\t"+csv[0][1]+"\t"+csv[0][2]);
 			System.out.println(csv[1][0]+"\t"+csv[1][1]+"\t"+csv[1][2]);
 		}catch(Exception e){
