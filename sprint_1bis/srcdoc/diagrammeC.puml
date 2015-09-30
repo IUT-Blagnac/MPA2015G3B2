@@ -1,0 +1,33 @@
+@startuml
+
+object Etudiants {
+  id
+  groupe
+  nom
+  prenom
+}
+
+object Sujets{
+	id
+	nom
+	titre
+}
+
+object Intervenants{
+	id
+	prenom
+	nom
+}
+
+object Projets{
+	id
+	client
+	superviseur
+	support_technique
+}
+Projets "1"--"*" Etudiants : Appartenir
+Sujets "1"--"0..1" Projets : Affecter
+Intervenants "*"--"0..1" Projets : Intervenir
+
+
+@enduml
