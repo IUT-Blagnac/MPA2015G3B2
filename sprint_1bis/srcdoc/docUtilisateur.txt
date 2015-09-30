@@ -80,21 +80,30 @@ v|Documentations technique et utilisateur :
 |Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
 |=======================================================================
 
-== Interface graphique
+== Guide d'utilisation
+
+Lancer l'application.
+
+image::accueil.png[link="accueil.png",width="20%"]
+
+Elle s'ouvre sur la liste des étudiants comme le montre l'image ci-dessus.
+Vous pouvez naviguer entre les différents onglets pour accéder à la liste des intervenants ou des sujets.
+
+Pour créer un nouveau sujet, étudiant ou intervenant, sélectionner le bon onglet puis cliquez sur le bouton "Créer".
+
+image::creer.png[link="creer.png",width="20%"]
+
+Une nouvelle page s'ouvre où vous pourrez saisir les informations demandés.
 
 image::interface.png[link="interface.png",width="20%"]
 
-Voici l'onglet "A propos" de l'interface graphique. 
-
-On peut changer d'onglet avec Test et on peut quitter l'application avec le bouton cliquer qui propose une confirmation.
+Si vous cliquez sur l'onglet "A propos", vous aurez des informations sur le groupe et la création de l'application.
 
 == Conclusion 
 
 === Où en sommes nous ?
 
-Une interface graphique minimale est disponible où vous pouvez cliquer sur un onglet "A propos" concernant l'équipe du projet.
-
-Un nouvel onglet "Sujets" est disponible où l'on peut ajouter, supprimer ou modifier des sujets. 
+L'application propose une création ou suppression d'un sujet.
 
 === A propos
 
@@ -107,4 +116,4 @@ Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.
 * Ou vers l'université : http://www.univ-tlse2.fr//[Université Toulouse 2]
 * L'application a été développée en https://www.java.com/fr/[Java]
 
-~© COO S3 Groupe 3B2 2015 | Réalisé par G3B2 | Tous droits réservés.~ 
+~© MPA S3 Groupe 3B2 2015 | Réalisé par G3B2 | Tous droits réservés.~ 

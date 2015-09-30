@@ -86,27 +86,36 @@ v|Documentations technique et utilisateur :
 
 image::diagram.png[link="diagram.png",width="15%"]
 
-=== SNI
+=== SNI :
 
 image::sni.png[link="sni.png",width="35%"]
 
 == Interface graphique
 
-=== Test :
+=== Tests :
 
-image::interface.png[link="interface.png",width="15%"]
+image::accueil.png[link="accueil.png",width="20%"]
 
-Quand on clique sur l'onglet "A propos" de l'application, on doit voir les informations sur le projet et le groupe qui développe l'application.
+L'application s'ouvre comme sur l'image ci-dessus.
 
-image::accueil.png[link="accueil.png",width="15%"]
+Une liste d'étudiants apparaît avec les boutons "Créer", "Supprimer", "Modifier".
 
-Si l'on clique sur l'onglet "Sujets", une liste de sujet doit apparaître avec les boutons "Créer", "Supprimer", "Modifier".
+image::sujet.png[link="sujet.png",width="20%"]
+image::intervenant.png[link="intervenant.png",width="20%"]
+
+Idem pour sujets et intervenants.
 
 image::creer.png[link="creer.png",width="15%"]
 
 Quand on clique sur "Créer", une nouvelle fenêtre s'ouvre avec un formulaire à 2 champs où il faut remplir avec le nom et la description du sujet.
 
-=== Code JAVA
+image::interface.png[link="interface.png",width="15%"]
+
+Quand on clique sur l'onglet "A propos" de l'application, on doit voir les informations sur le projet et le groupe qui développe l'application.
+
+Quand on clique sur le bouton cliquer pour arrêter l'application une fenêtre de confirmation s'ouvre pour annuler l'arrêt ou quitter.
+
+=== Code JAVA :
 
 link:{src}OPTI.java[Code de l'interface graphique] 
 
@@ -135,4 +144,4 @@ Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.
 * Ou vers l'université : http://www.univ-tlse2.fr//[Université Toulouse 2]
 * L'application a été développée en https://www.java.com/fr/[Java]
 
-~© COO S3 Groupe 3B2 2015 | Réalisé par G3B2 | Tous droits réservés.~ 
+~© MPA S3 Groupe 3B2 2015 | Réalisé par G3B2 | Tous droits réservés.~ 
