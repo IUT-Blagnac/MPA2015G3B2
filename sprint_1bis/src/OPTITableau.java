@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -17,6 +19,11 @@ public class OPTITableau extends JPanel {
 		super(new BorderLayout());
 		table = new JTable(rowData, columnNames);
 		this.data = rowData;
+		JPanel bottom = new JPanel(new FlowLayout());
+		bottom.add(new JButton("Ajouter"));
+		bottom.add(new JButton("Modifier"));
+		bottom.add(new JButton("Supprimer"));
+		this.add(bottom, BorderLayout.SOUTH);
 		addScrollPane();
 	}
 	
