@@ -42,10 +42,46 @@ public class OPTI extends JFrame{
 		String etudiant = "csv/etudiants2014_2015.csv";
 		String intervenant = "csv/intervenants2014_2015.csv";
 		String projet = "csv/projets2014_2015.csv";
+		JPanel etu = new JPanel(new BorderLayout());
+		JPanel suj = new JPanel(new BorderLayout());
+		JPanel interv = new JPanel(new BorderLayout());
+		JPanel sud = new JPanel(new FlowLayout());
+		JPanel sud2 = new JPanel(new FlowLayout());
+		JPanel sud3 = new JPanel(new FlowLayout());
+		JButton ajoutetu = new JButton("Ajouter un étudiant");
+		JButton modifetu = new JButton("Modifier un étudiant");
+		JButton suppretu = new JButton("Supprimer un étudiant");
+		JButton ajoutsuj = new JButton("Ajout d'un sujet");
+		JButton modifsuj = new JButton("Modifier un sujet");
+		JButton supprsuj = new JButton("Supprimer un sujet");
+		JButton ajoutinterv = new JButton("Ajout d'un intervenant");
+		JButton modifinterv = new JButton("Modifier un intervenant");
+		JButton supprinterv = new JButton("Supprimer un intervenant");
+		
+		ajoutsuj.addActionListener(new Action());
+		try {
+			etu.add(new OPTITableau(LibCSV.readValues(etudiant), LibCSV.readTitles(etudiant)), BorderLayout.CENTER);
+			suj.add(new OPTITableau(LibCSV.readValues(sujet), LibCSV.readTitles(sujet)), BorderLayout.CENTER);
+			interv.add(new OPTITableau(LibCSV.readValues(intervenant), LibCSV.readTitles(intervenant)));
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		sud.add(ajoutetu);
+		sud.add(modifetu);
+		sud.add(suppretu);
+		sud2.add(ajoutsuj);
+		sud2.add(modifsuj);
+		sud2.add(supprsuj);
+		sud3.add(ajoutinterv);
+		sud3.add(modifinterv);
+		sud3.add(supprinterv);
+		etu.add(sud, BorderLayout.SOUTH);
+		suj.add(sud2, BorderLayout.SOUTH);
+		interv.add(sud3, BorderLayout.SOUTH);
 		try{
-		tabbedPane.addTab("Etudiants", new OPTITableau(LibCSV.readValues(etudiant), LibCSV.readTitles(etudiant)));
-		tabbedPane.addTab("Sujets", new OPTITableau(LibCSV.readValues(sujet), LibCSV.readTitles(sujet)));
-		tabbedPane.addTab("Intervenants", new OPTITableau(LibCSV.readValues(intervenant), LibCSV.readTitles(intervenant)));
+		tabbedPane.addTab("Etudiants", etu);
+		tabbedPane.addTab("Sujets", suj);
+		tabbedPane.addTab("Intervenants",interv);
 		//NE FONCTIONNE PAS//tabbedPane.addTab("Projets", new OPTITableau(LibCSV.readValues(projet), LibCSV.readTitles(projet)));
 		tabbedPane.addTab("A propos", new JLabel("<HTML>Liste des membres du groupe : <br>"
 				+ "- Florian SEGUIN <br>" + "- Guilhem SABATHIER <br>"
