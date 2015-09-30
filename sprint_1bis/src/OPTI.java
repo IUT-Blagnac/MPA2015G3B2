@@ -17,6 +17,8 @@ public class OPTI extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	
+	private JTabbedPane tabbedPane;
+	
 	public OPTI(String title){
 		super(title);
 		this.setLayout(new BorderLayout());
@@ -35,7 +37,7 @@ public class OPTI extends JFrame{
 	}
 	
 	private void addTabbedPane(){
-		JTabbedPane tabbedPane = new JTabbedPane();
+		tabbedPane = new JTabbedPane();
 		String sujet = "csv/sujets2014_2015.csv";
 		String etudiant = "csv/etudiants2014_2015.csv";
 		String intervenant = "csv/intervenants2014_2015.csv";
