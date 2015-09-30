@@ -80,11 +80,17 @@ v|Documentations technique et utilisateur :
 |Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
 |=======================================================================
 
-== Interface graphique
+== Diagrammes de conception
+
+=== Diagramme des classes : 
+
+image::diagram.png[link="diagram.png",width="15%"]
 
 === SNI
 
-image::sni.png[link="sni.png",width="30%"]
+image::sni.png[link="sni.png",width="35%"]
+
+== Interface graphique
 
 === Test :
 

@@ -1,11 +1,11 @@
 ﻿= Documentation Utilisateur Projet OPTI
 :Author:  Groupe projet 3B2
-:doctitle: Documentation Utilisateur SPRINT 1
+:doctitle: Documentation Utilisateur SPRINT 1 BIS
 :slideshowlocation: Your computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :toc: right
 :toc-title: Sommaire
-:revnumber: 1
+:revnumber: 1 bis
 
 include::docConf.txt[]
 
@@ -52,7 +52,7 @@ v|Affectation des intervenants sur chaque projet tutoré :
 |0%
 |====================================================================================
 
-Backlog SPRINT 1 :
+Backlog SPRINT 1 BIS:
 
 [options="header"]
 |====================================================================================
@@ -99,8 +99,6 @@ Un nouvel onglet "Sujets" est disponible où l'on peut ajouter, supprimer ou mod
 === A propos
 
 Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.
-
-Ceci est le SPRINT 1.
 
 === Supports
 
