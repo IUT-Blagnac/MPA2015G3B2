@@ -1,3 +1,0 @@
-http://thierry-leriche-dessirier.developpez.com/tutoriels/java/charger-afficher-donnees-db-csv-5-min/
-
-http://thierry-leriche-dessirier.developpez.com/tutoriels/java/afficher-tableau-avec-tablemodel-5-min/
