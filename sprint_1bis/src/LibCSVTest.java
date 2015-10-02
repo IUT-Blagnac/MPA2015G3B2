@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 public class LibCSVTest extends TestCase {
-
+/*
 	String finDeLigne = System.getProperty("line.separator");
 
 	public static void main(String[] args) {
@@ -37,5 +37,5 @@ public class LibCSVTest extends TestCase {
 	    catch (Exception e) { exception = true ; };
 
 	    assertTrue("LibCSV.save(vec, "+file+") leve une exception", exception);
-	}
+	}*/
 }
