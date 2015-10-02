@@ -128,7 +128,6 @@ public class LibCSV {
 				donnees.add(sc.next());
 		}
 		sc.close();
-		System.out.println(donnees.size());
 		return donnees.toArray();
 	}
 	

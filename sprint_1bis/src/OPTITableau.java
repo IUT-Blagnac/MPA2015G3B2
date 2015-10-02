@@ -48,7 +48,7 @@ public class OPTITableau extends JPanel {
 	private void addButton(){
 		JPanel button = new JPanel(new FlowLayout());
 		
-		JButton ajouter = new JButton("Ajouter(faire tout planter)");
+		JButton ajouter = new JButton("Ajouter");
 		ajouter.addActionListener(new Ajouter());
 		button.add(ajouter);
 		
@@ -71,12 +71,13 @@ public class OPTITableau extends JPanel {
 	        for(int i = 0; i < lignes.length; i++){
 	            modelIndexes[i] = table.getRowSorter().convertRowIndexToModel(lignes[i]);
 	        }
-	 
+	        
 	        Arrays.sort(modelIndexes);
 			
 			for(int i=lignes.length-1; i>=0; i--){
 				this.csv.removeRow(lignes[i]);
 			}
+			csv.maj();
 		}else{
 			JOptionPane.showMessageDialog(getParent(), "Vous n'avez séléctionner aucunes lignes !");
 		}
@@ -89,13 +90,19 @@ public class OPTITableau extends JPanel {
 			final JFrame creer = new JFrame("Saisir les valeurs souhaitées :");
 			creer.setLayout(new BorderLayout());
 			JPanel pane = new JPanel(new GridLayout(0,1));
-			for(String d : csv.getColumnsNames())
-				if(!(d.compareTo("id") == 0)){
+			for(String d : csv.getColumnsNames()){
+				if(d.toLowerCase().compareTo("id") == 0){
+					pane.add(new JLabel("ID : "));
+					JLabel id = new JLabel(csv.getID());
+					textes.add(new JTextField(id.getText()));
+					pane.add(id);
+				}else{
 					pane.add(new JLabel(d+" : "));
 					JTextField text = new JTextField();
 					textes.add(text);
 					pane.add(text);
 				}
+			}
 			creer.add(pane, BorderLayout.CENTER);
 			
 			JPanel buttonpane = new JPanel(new FlowLayout());
@@ -103,9 +110,8 @@ public class OPTITableau extends JPanel {
 			validbouton.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent actionEvent){
 						ArrayList<String> row = new ArrayList<String>();
-						for(JTextField text : textes){
-							row.add(text.getText());
-						}
+						for(JTextField t : textes)
+							row.add(t.getText());
 						csv.addRow(row.toArray(new String[row.size()]));
 						creer.dispose();
 					}

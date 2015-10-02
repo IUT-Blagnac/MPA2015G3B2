@@ -71,7 +71,7 @@ public class CSV extends AbstractTableModel {
  
     public void removeRow(int rowIndex){
     	this.data.remove(rowIndex);
- 
+    	
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
     
@@ -85,4 +85,53 @@ public class CSV extends AbstractTableModel {
 			e.printStackTrace();
 		}
 	}
+    
+    public boolean isID(){
+    	for(String name : getColumnsNames()){
+    		name.toLowerCase();
+    		if(name.compareTo("id") == 0)
+    			return true;
+    	}
+    	return false;
+    }
+    
+    public int getIDColumn(){
+    	String[] names = getColumnsNames();
+    	for(int i=0; i<getColumnCount(); i++)
+    		if(names[i].toLowerCase().compareTo("id") == 0)
+    			return i;
+    	return -1;
+    }
+    
+    public String getID(){
+    	if(isID()){
+    		int id = -1;
+    		try{
+		    	for(int i = 0; i<data.size(); i++){
+		    		int n =Integer.parseInt((String)data.get(i)[getIDColumn()]);
+		    		if(n > id)
+		    			id = n;
+		    	}
+    		}catch(Exception e){e.printStackTrace();}
+    		id = id+1;
+    		return ""+id;
+    	}else
+    		return null;
+    }
+    
+    public void maj(){
+    	if(isID()){
+    		try{
+    			int id = 1;
+		    	for(int i = 0; i<data.size(); i++){
+		    		int n =Integer.parseInt((String)data.get(i)[getIDColumn()]);
+		    		if(n != id){
+		    			data.get(i)[getIDColumn()] = ""+id;
+		    			fireTableCellUpdated(i, getIDColumn());
+		    		}
+		    		id++;
+		    	}
+    		}catch(Exception e){e.printStackTrace();}
+    	}
+    }
 }
