@@ -1,7 +1,4 @@
-import java.io.IOException;
-
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 public class LibCSVTest extends TestCase {
 /*

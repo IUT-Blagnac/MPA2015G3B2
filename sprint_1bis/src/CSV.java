@@ -48,8 +48,9 @@ public class CSV extends AbstractTableModel {
         return this.data.get(rowIndex)[columnIndex];
     }
     
-    public Object setValueAt(int rowIndex, int columnIndex){
-        return this.data.get(rowIndex)[columnIndex];
+    public void setValueAt(Object value, int rowIndex, int columnIndex){
+        this.data.get(rowIndex)[columnIndex] = value;
+        fireTableCellUpdated(rowIndex, columnIndex);
     }
     
     public Class<?> getColumnClass(int columnIndex){
