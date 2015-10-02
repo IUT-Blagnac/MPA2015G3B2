@@ -31,7 +31,7 @@ Nous devons fournir un recette à la fin de chaque sprint pour montrer notre ava
 v|Liste des sujets de projet tutoré de l’année : 
 - Créer/Supprimer/Modifier un sujet
 - Lister les sujets avec filtres                           
-|20%
+|100%
 v|Voeux des groupes d'étudiants :
 - Définir des groupes d'étudiants
 - Associer des étudiants à des groupes
@@ -58,13 +58,13 @@ Backlog SPRINT 1 BIS:
 |====================================================================================
 |Exigences                                            |Réalisation
 v|Créer / Supprimer un sujet :                            
-|20%
+|100%
 v|Modifier un sujet :                                 
-|0%
+|100%
 v|IHM :                                
-|60%
+|100%
 v|Documentations technique et utilisateur :            
-|70%
+|100%
 |====================================================================================
 
 === Membres du projet :
