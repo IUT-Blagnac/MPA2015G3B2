@@ -134,19 +134,15 @@ image::quitter.png[link="quitter.png",width="20%"]
 
 Quand on clique sur le bouton "Quitter" pour arrêter l'application une fenêtre de confirmation s'ouvre pour annuler l'arrêt ou quitter.
 
-=== Code JAVA :
+== Javadoc interface graphique :
 
-link:{src}OPTI.java[Code de l'interface graphique] 
+link:../doc/OPTI.html[javadoc]
 
-== Code source
+== Javadoc controleur :
 
-link:{src}LibCSV.java[Code de la librairie CSV]
+link:../doc/LibCSV.html[javadoc]
 
 == Conclusion 
-
-=== Parcours :
-
-L'interface du SPRINT 1 BIS est terminée, 
 
 === A propos
 
