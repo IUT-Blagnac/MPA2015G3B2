@@ -84,20 +84,36 @@ v|Documentations technique et utilisateur :
 
 Lancer l'application.
 
-image::accueil.png[link="accueil.png",width="20%"]
+image::accueil.png[link="accueil.png",width="25%"]
 
 Elle s'ouvre sur la liste des étudiants comme le montre l'image ci-dessus.
 Vous pouvez naviguer entre les différents onglets pour accéder à la liste des intervenants ou des sujets.
 
-Pour créer un nouveau sujet, étudiant ou intervenant, sélectionner le bon onglet puis cliquez sur le bouton "Créer".
+Pour créer un nouveau sujet, étudiant ou intervenant, sélectionner le bon onglet puis cliquez sur le bouton "Ajouter".
 
-image::creer.png[link="creer.png",width="20%"]
+image::creer.png[link="creer.png",width="25%"]
 
-Une nouvelle page s'ouvre où vous pourrez saisir les informations demandés.
+Une nouvelle page s'ouvre où vous pourrez saisir les informations demandés. Puis cliquer sur "Valider" pour confirmer.
 
-image::interface.png[link="interface.png",width="20%"]
+image::supprimer.png[link="supprimer.png",width="25%"]
+
+Si vous voulez supprimer une ligne ou plusieurs, sélectionnez sur la ou les lignes (elles seront bleutées) et cliquez sur le bouton "Supprimer".
+
+Pour modifier, sélectionnez la case et réécrivez directement dans celle-ci.
+
+image::sauver.png[link="sauver.png",width="25%"]
+
+Si vous voulez enregistrer vos modifications, cliquez sur le bouton "Sauver" puis sur ok sur la fenêtre qui s'ouvre.
+
+image::interface.png[link="interface.png",width="25%"]
 
 Si vous cliquez sur l'onglet "A propos", vous aurez des informations sur le groupe et la création de l'application.
+
+image::quitter.png[link="quitter.png",width="25%"]
+
+Pour quitter l'application, cliquer sur "Quitter". La page ci-dessus s'ouvre et vous demande une confirmation.
+
+WARNING: Si vous quittez sans avoir sauvegarder, vous perdrez vos modifications.
 
 == Conclusion 
 
