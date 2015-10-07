@@ -20,15 +20,18 @@ public class CSV extends AbstractTableModel {
 			e.printStackTrace();
 		}
     }
-
+    
+    @Override
     public int getRowCount(){
         return this.data.size();
     }
     
+    @Override
     public int getColumnCount(){
         return this.names.length;
     }
     
+    @Override
     public String getColumnName(int columnIndex) {
         return (String)names[columnIndex];
     }
@@ -40,43 +43,39 @@ public class CSV extends AbstractTableModel {
         return cn;
     }
     
+    @Override
     public boolean isCellEditable(int row, int column){
 		return !(this.getColumnName(column).compareTo("id") == 0);
 	}
     
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex){
         return this.data.get(rowIndex)[columnIndex];
     }
     
+    @Override
     public void setValueAt(Object value, int rowIndex, int columnIndex){
         this.data.get(rowIndex)[columnIndex] = value;
         fireTableCellUpdated(rowIndex, columnIndex);
     }
     
-    public Class<?> getColumnClass(int columnIndex){
-    	if(this.data.get(0)[columnIndex] != null){
-    		return data.get(0)[columnIndex].getClass();
-    	}
-    	return Object.class;
-    }
-    
     public String getFilePath(){
 		return this.filepath;
 	}
- 
+    
     public void addRow(String[] ligne){
     	this.data.add(ligne);
         
         fireTableRowsInserted(this.data.size() -1, this.data.size() -1);
     }
- 
+    
     public void removeRow(int rowIndex){
     	this.data.remove(rowIndex);
     	
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
     
-    public void save(){
+    public void save(String filepath){
 		List<Object[]> file = new ArrayList<Object[]>();
 		file.add(this.names);
 		file.addAll(this.data);

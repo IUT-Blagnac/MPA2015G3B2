@@ -119,11 +119,11 @@ public class LibCSV {
 		
 		// Récuperation des données de la ligne
 		sc.useDelimiter(";");
-		while (sc.hasNext()) {
+		while (sc.hasNext()){
 			if(sc.hasNext("(\\n|\\r|\\t)")){
-				donnees.add(sc.next());
-			}else if(sc.hasNext("(\\n|\\r|\\t)")){
-				donnees.add(sc.next());
+				donnees.add(" ");
+			}else if(sc.hasNext("")){
+				donnees.add(" ");
 			}else
 				donnees.add(sc.next());
 		}
@@ -133,7 +133,7 @@ public class LibCSV {
 	
 	public static void main(String[] args) {
 		try{
-		for(Object d : LibCSV.readTitles("csv/etudiants2014_2015.csv"))
+		for(Object d : LibCSV.readValues("csv/test.csv"))
 			System.out.println(d);
 		}catch(Exception e){
 			

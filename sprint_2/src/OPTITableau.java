@@ -5,11 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -30,11 +31,29 @@ public class OPTITableau extends JPanel {
 	public OPTITableau(String filepath) {
 		super(new BorderLayout());
 		this.csv = new CSV(filepath);
-		this.table = new JTable(csv);
-		this.table.getTableHeader().setReorderingAllowed(false);
-		this.table.setRowSorter(new TableRowSorter<TableModel>(this.table.getModel()));
+		addJTable();
 		addScrollPane();
 		addButton();
+	}
+	
+	private void addJTable(){
+		this.table = new JTable(csv);
+		this.table.getTableHeader().setReorderingAllowed(false);
+		TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(table.getModel());
+		for(int i=0; i<csv.getColumnCount(); i++)
+			sorter.setComparator(i,new Comparator<Object>() {
+			         @Override
+			         public int compare(Object o1, Object o2){
+			        	try{
+			         		return Integer.parseInt((String)o1) - Integer.parseInt((String)o2);
+			         	}catch(Exception e){
+			         		String s1 = (String)o1;
+			         		String s2 = (String)o2;
+			         		return s1.compareTo(s2);
+			         	}
+			         }
+			     });
+		 this.table.setRowSorter(sorter);
 	}
 	
 	private void addScrollPane(){
@@ -65,22 +84,19 @@ public class OPTITableau extends JPanel {
 	
 	public void supprimer(){
 		int[] lignes = table.getSelectedRows();
-		if(lignes != null && lignes.length > 0){
-			int[] modelIndexes = new int[lignes.length];
+		
+		int[] modelIndexes = new int[lignes.length];
 			 
-	        for(int i = 0; i < lignes.length; i++){
-	            modelIndexes[i] = table.getRowSorter().convertRowIndexToModel(lignes[i]);
-	        }
+	    for(int i = 0; i < lignes.length; i++){
+	        modelIndexes[i] = table.getRowSorter().convertRowIndexToModel(lignes[i]);
+	    }
 	        
-	        Arrays.sort(modelIndexes);
+	    Arrays.sort(modelIndexes);
 			
-			for(int i=lignes.length-1; i>=0; i--){
-				this.csv.removeRow(lignes[i]);
-			}
-			csv.maj();
-		}else{
-			JOptionPane.showMessageDialog(getParent(), "Vous n'avez séléctionner aucunes lignes !");
+		for(int i=lignes.length-1; i>=0; i--){
+			this.csv.removeRow(modelIndexes[i]);
 		}
+		csv.maj();
 	}
 	
 	class Ajouter implements ActionListener{
@@ -134,17 +150,27 @@ public class OPTITableau extends JPanel {
 	
 	class Sauver implements ActionListener{
 		public void actionPerformed(ActionEvent actionEvent) {
-			csv.save();
-			File f = new File(csv.getFilePath());
-			JOptionPane.showMessageDialog(getParent(), "Les données ont été sauvé à l'emplacement :\n"+f.getAbsolutePath());
+			JFileChooser dialogue = new JFileChooser(".");
+			if(dialogue.showSaveDialog(null) ==  JFileChooser.APPROVE_OPTION){
+				String path = dialogue.getSelectedFile().getAbsolutePath();
+				if(!path.endsWith(".csv"))
+					path = path+".csv";
+				csv.save(path);
+			}
 		}
 	}
 	
 	class Supprimer implements ActionListener{
 		public void actionPerformed(ActionEvent actionEvent) {
-			if (JOptionPane.showConfirmDialog(new JOptionPane(),
-					"Voulez-vous vraiment supprimer les lignes sélectionner ?") == 0) {
-				supprimer();
+			System.out.println(csv.getColumnClass(0));
+			int[] lignes = table.getSelectedRows();
+			if(lignes != null && lignes.length > 0){
+				if (JOptionPane.showConfirmDialog(new JOptionPane(),
+						"Voulez-vous vraiment supprimer les lignes sélectionner ?") == 0) {
+					supprimer();
+				}
+			}else{
+				JOptionPane.showMessageDialog(getParent(), "Vous n'avez séléctionner aucunes lignes !");
 			}
 		}
 	}
