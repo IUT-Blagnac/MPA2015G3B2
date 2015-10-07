@@ -156,6 +156,7 @@ public class OPTITableau extends JPanel {
 				if(!path.endsWith(".csv"))
 					path = path+".csv";
 				csv.save(path);
+				csv.save(csv.getFilePath());
 			}
 		}
 	}
