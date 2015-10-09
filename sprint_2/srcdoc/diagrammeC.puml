@@ -1,33 +1,39 @@
 @startuml
 
 object Etudiants {
-  id
+  idE
   groupe
   nom
   prenom
 }
 
 object Sujets{
-	id
+	idS
 	nom
 	titre
 }
 
 object Intervenants{
-	id
+	idI
 	prenom
 	nom
 }
 
 object Projets{
-	id
+	idP
 	client
 	superviseur
 	support_technique
 }
-Projets "1"--"*" Etudiants : Appartenir
-Sujets "1"--"0..1" Projets : Affecter
-Intervenants "*"--"0..1" Projets : Intervenir
+
+object Groupes{
+	idG
+}
+
+Projets "1"--"1" Groupes : Appartenir
+Groupes "1"--"0..1" Sujets : Affecter
+Intervenants "*"--"*" Projets : Intervenir
+Etudiants "1..*"--"1" Groupes : Composer
 
 
 @enduml

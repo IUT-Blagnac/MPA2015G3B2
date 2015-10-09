@@ -25,46 +25,23 @@ Nous devons fournir un recette à la fin de chaque sprint pour montrer notre ava
 
 === Backlog Produit : 
 
-[options="header"]
-|====================================================================================
-|Exigences                                            |Réalisation
-v|Liste des sujets de projet tutoré de l’année : 
-- Créer/Supprimer/Modifier un sujet
-- Lister les sujets avec filtres                           
-|100%
-v|Voeux des groupes d'étudiants :
-- Définir des groupes d'étudiants
-- Associer des étudiants à des groupes
-- Définir les voeux d’un groupe                                 
-|0%
-v|Affectation des projets aux groupes d'étudiants :
-- Définir (affectation) un sujet pour un groupe
-- Lister le nombre de voeux par rang pour un sujet 
-- Lister pour un groupe le nombre de "concurrents" par rang de voeux
-- Lister les sujets affectés / non affectés
-- Lister les groupes affectés / non affectés
-- Calcul automatique de pré-affectation "au mieux" sur un ensemble de groupes non affectés                                 
-|0%
-v|Affectation des intervenants sur chaque projet tutoré :
-- Définir les intervenants d’un projet tutoré 
-- Lister les projets par intervenant
-- Lister les intervenants par projet             
-|0%
-|====================================================================================
-
 Backlog SPRINT 1 BIS:
 
 [options="header"]
 |====================================================================================
 |Exigences                                            |Réalisation
-v|Créer / Supprimer un sujet :                            
+v|Corriger les bugs du Sprint 1 bis :                            
 |100%
-v|Modifier un sujet :                                 
+v|Lancer l'application facilement :                                 
 |100%
-v|IHM :                                
+v|Ecrire la notice d'utilisation :            
 |100%
-v|Documentations technique et utilisateur :            
+v|Sauvegarder dans n'importe quel fichier :            
 |100%
+v|Définir des groupes d'étudiants :            
+|0%
+v|Cloner un projet :            
+|0%
 |====================================================================================
 
 === Membres du projet :
