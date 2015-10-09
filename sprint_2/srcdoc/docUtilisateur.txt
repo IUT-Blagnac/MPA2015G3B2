@@ -1,11 +1,11 @@
 ﻿= Documentation Utilisateur Projet OPTI
 :Author:  Groupe projet 3B2
-:doctitle: Documentation Utilisateur SPRINT 1 BIS
+:doctitle: Documentation Utilisateur SPRINT 2
 :slideshowlocation: Your computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :toc: right
 :toc-title: Sommaire
-:revnumber: 1 bis
+:revnumber: 2
 
 include::docConf.txt[]
 
@@ -25,7 +25,7 @@ Nous devons fournir un recette à la fin de chaque sprint pour montrer notre ava
 
 === Backlog Produit : 
 
-Backlog SPRINT 1 BIS:
+Backlog SPRINT 2:
 
 [options="header"]
 |====================================================================================
