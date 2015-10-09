@@ -25,8 +25,8 @@ import javax.swing.table.TableRowSorter;
 public class OPTITableau extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
-	private JTable table;
-	private CSV csv;
+	protected JTable table;
+	protected CSV csv;
 	
 	public OPTITableau(String filepath) {
 		super(new BorderLayout());

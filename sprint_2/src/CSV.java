@@ -6,9 +6,9 @@ import javax.swing.table.AbstractTableModel;
 public class CSV extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	
-	private List<Object[]> data;
-    private Object[] names;
-    private String filepath;
+	protected List<Object[]> data;
+	protected Object[] names;
+	protected String filepath;
     
     public CSV(String filepath){
         super();

@@ -43,7 +43,7 @@ public class OPTI extends JFrame{
 		tabbedPane.addTab("Etudiants", new OPTITableau(etudiant));
 		tabbedPane.addTab("Sujets", new OPTITableau(sujet));
 		tabbedPane.addTab("Intervenants",new OPTITableau(intervenant));
-		tabbedPane.addTab("Projets", new OPTITableau(projet));
+		tabbedPane.addTab("Projets", new OPTITableauProjet(projet));
 		tabbedPane.addTab("A propos", new JLabel("<HTML>Liste des membres du groupe : <br>"
 				+ "- Florian SEGUIN <br>" + "- Guilhem SABATHIER <br>"
 				+ "- Cedric DOULIEZ <br>" + "- Simon TAILLEFER <br>"
