@@ -76,7 +76,7 @@ public class OPTI extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		OPTI f = new OPTI("test");
+		OPTI f = new OPTI("OPTI");
 		f.setLocationRelativeTo(null);
 		f.pack();
 		f.setVisible(true);
