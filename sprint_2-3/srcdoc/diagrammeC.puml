@@ -35,5 +35,4 @@ Groupes "1"--"0..1" Sujets : Affecter
 Intervenants "*"--"*" Projets : Intervenir
 Etudiants "1..*"--"1" Groupes : Composer
 
-
 @enduml
