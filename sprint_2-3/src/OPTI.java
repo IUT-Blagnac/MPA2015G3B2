@@ -39,11 +39,13 @@ public class OPTI extends JFrame{
 		String etudiant = "csv/etudiants2014_2015.csv";
 		String intervenant = "csv/intervenants2014_2015.csv";
 		String projet = "csv/projets2014_2015.csv";
+		String groupe = "csv/groupes2014_2015.csv";
 		try{
 		tabbedPane.addTab("Etudiants", new OPTITableau(etudiant));
 		tabbedPane.addTab("Sujets", new OPTITableau(sujet));
 		tabbedPane.addTab("Intervenants",new OPTITableau(intervenant));
 		tabbedPane.addTab("Projets", new OPTITableauProjet(projet));
+		tabbedPane.addTab("Groupes", new OPTITableau(groupe));
 		tabbedPane.addTab("A propos", new JLabel("<HTML>Liste des membres du groupe : <br>"
 				+ "- Florian SEGUIN <br>" + "- Guilhem SABATHIER <br>"
 				+ "- Cedric DOULIEZ <br>" + "- Simon TAILLEFER <br>"
