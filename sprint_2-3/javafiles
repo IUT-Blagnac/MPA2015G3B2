@@ -1,3 +1,6 @@
 ./src/HelloMonde.java
 ./src/Lib.java
 ./src/LibCSV.java
+./src/OPTI.java
+./src/OPTITableau.java
+./src/OPTITableauProjet.java

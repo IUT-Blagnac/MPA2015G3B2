@@ -23,7 +23,6 @@ if "%RUNTEST%"=="1" (
  cd %BINDIR%
   java -cp .;../tools/junit.jar HelloMondeTest
   java -cp .;../tools/junit.jar LibTest
-  java -cp .;../tools/junit.jar LibCSVTest
  cd %SPRINTDIR%
 )
 
