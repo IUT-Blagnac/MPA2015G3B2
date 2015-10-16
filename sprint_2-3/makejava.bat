@@ -21,8 +21,8 @@ javac -cp .;%BINDIR% -d %BINDIR% @ihmfiles
 @echo ///////////////////////////////////////////////////////
 if "%RUNTEST%"=="1" (
  cd %BINDIR%
-  java -cp .;../tools/test/junit.jar HelloMondeTest
-  java -cp .;../tools/test/junit.jar LibTest
+  java -cp .;../tools/junit.jar HelloMondeTest
+  java -cp .;../tools/junit.jar LibTest
  cd %SPRINTDIR%
 )
 
