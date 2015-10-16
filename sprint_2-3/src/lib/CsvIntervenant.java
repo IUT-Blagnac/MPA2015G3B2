@@ -6,26 +6,21 @@ import java.util.List;
 public class CsvIntervenant extends Csv {
 	private static final long serialVersionUID = 1L;
 	
-	private List<Projet> projet = new ArrayList<Projet>();
-	private Gestion gestion;
+	private List<Intervenant> intervenant = new ArrayList<Intervenant>();
     private String[] names;
     private String filepath;
     
-    public CsvProjet(String filepath, Gestion g){
+    public CsvIntervenant(String filepath){
         super();
         this.filepath = filepath;
-        this.gestion = g;
 		try{
 			List<String[]> data = LibCSV.readValues(filepath);
 			this.names= LibCSV.readTitles(filepath);
 			for(String[] ligne : data){
 				int id = Integer.parseInt(ligne[0]);
-				char[] groupe = ligne[1].trim().toCharArray();
-				Sujet sujet = gestion.getSujetFromId(Integer.parseInt(ligne[2]));
-				Intervenant[] intervenants = new Intervenant[3];
-				for(int i=3; i<ligne.length; i++)
-					intervenants[i-3] = gestion.getIntervenantFromId(Integer.parseInt(ligne[i]));
-				projet.add(new Projet(id,groupe[0],sujet,intervenants));
+				String nom = ligne[1].trim();
+				String prenom = ligne[2].trim();
+				intervenant.add(new Intervenant(id,nom,prenom));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -34,7 +29,7 @@ public class CsvIntervenant extends Csv {
     
     @Override
     public int getRowCount(){
-        return this.projet.size();
+        return this.intervenant.size();
     }
     
     @Override
@@ -60,17 +55,11 @@ public class CsvIntervenant extends Csv {
     public Object getValueAt(int rowIndex, int columnIndex){
     	switch(columnIndex){
     	case 0:
-    		return this.projet.get(rowIndex).getId();
+    		return this.intervenant.get(rowIndex).getId();
     	case 1:
-    		return this.projet.get(rowIndex).getGroupe();
+    		return this.intervenant.get(rowIndex).getNom();
     	case 2:
-    		return this.projet.get(rowIndex).getSujet().getId();
-    	case 3:
-    		return this.projet.get(rowIndex).getClient().getId();
-    	case 4:
-    		return this.projet.get(rowIndex).getSuperviseur().getId();
-    	case 5:
-    		return this.projet.get(rowIndex).getSupportTechnique().getId();
+    		return this.intervenant.get(rowIndex).getPrenom();
     	}
         return null;
     }
@@ -79,51 +68,49 @@ public class CsvIntervenant extends Csv {
     public void setValueAt(Object value, int rowIndex, int columnIndex){
     	switch(columnIndex){
     	case 0:
-    		this.projet.get(rowIndex).setId((int)value);
+    		this.intervenant.get(rowIndex).setId(Integer.parseInt((String)value));
+    		break;
     	case 1:
-    		this.projet.get(rowIndex).setGroupe((char)value);
+    		this.intervenant.get(rowIndex).setNom((String)value);
+    		break;
     	case 2:
-    		this.projet.get(rowIndex).setSujet(gestion.getSujetFromId((int)value));
-    	case 3:
-    		this.projet.get(rowIndex).setClient(gestion.getIntervenantFromName((String)value));
-    	case 4:
-    		this.projet.get(rowIndex).setSuperviseur(gestion.getIntervenantFromName((String)value));
-    	case 5:
-    		this.projet.get(rowIndex).setSupportTechnique(gestion.getIntervenantFromName((String)value));
+    		this.intervenant.get(rowIndex).setPrenom((String)value);
+    		break;
     	}
         fireTableCellUpdated(rowIndex, columnIndex);
-    }
-    
-    @Override
-    public Class<?> getColumnClass(int columnIndex){
-    	switch(columnIndex){
-    	case 0:case 2:case 3:case 4:case 5:
-    		return Integer.class;
-    	case 1:
-    		return Character.class;
-    	}
-        return Object.class;
     }
     
     public String getFilePath(){
 		return this.filepath;
 	}
     
+    public Intervenant getIntervenantFromId(int id){
+    	for(Intervenant inter : intervenant){
+    		if(inter.getId() == id)
+    			return inter;
+    	}
+		return null;
+	}
+	
+	public Intervenant getIntervenantFromName(String nom){
+		for(Intervenant inter : intervenant){
+    		if(inter.getNom() == nom)
+    			return inter;
+    	}
+		return null;
+	}
+    
     public void addRow(Object[] ligne){
     	int id = (int)ligne[0];
-    	char groupe = (char)ligne[1];
-    	int sujet = (int)ligne[2];
-    	Intervenant[] intervenant = new Intervenant[3];
-    	intervenant[0] = gestion.getIntervenantFromId((int)ligne[3]);
-    	intervenant[1] = gestion.getIntervenantFromId((int)ligne[4]);
-    	intervenant[2] = gestion.getIntervenantFromId((int)ligne[5]);
+    	String nom = (String)ligne[1];
+    	String prenom = (String)ligne[2];
     	
-    	this.projet.add(new Projet(id,groupe,gestion.getSujetFromId(sujet),intervenant));
-        fireTableRowsInserted(this.projet.size() -1, this.projet.size() -1);
+    	this.intervenant.add(new Intervenant(id,nom,prenom));
+        fireTableRowsInserted(this.intervenant.size() -1, this.intervenant.size() -1);
     }
     
     public void removeRow(int rowIndex){
-    	this.projet.remove(rowIndex);
+    	this.intervenant.remove(rowIndex);
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
     /*

@@ -5,7 +5,11 @@ import javax.swing.table.AbstractTableModel;
 public abstract class Csv extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	
-	abstract String[] getColumnsNames();
+	public String[] getColumnsNames(){return null;}
 	
-	abstract String getFilePath();
+	public String getFilePath(){return null;}
+	
+	public void addRow(Object[] ligne){}
+    
+	public void removeRow(int rowIndex){}
 }

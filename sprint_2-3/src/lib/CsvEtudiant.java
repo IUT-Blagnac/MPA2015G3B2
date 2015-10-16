@@ -1,11 +1,7 @@
 package lib;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.swing.table.AbstractTableModel;
 
 public class CsvEtudiant extends Csv {
 	private static final long serialVersionUID = 1L;
@@ -13,8 +9,6 @@ public class CsvEtudiant extends Csv {
 	private List<Etudiant> etudiant = new ArrayList<Etudiant>();
     private String[] names;
     private String filepath;
-    
-    private Map<Character,Integer[]> groupes = new HashMap<Character,Integer[]>();
     
     public CsvEtudiant(String filepath){
         super();
@@ -62,7 +56,7 @@ public class CsvEtudiant extends Csv {
     	case 0:
     		return this.etudiant.get(rowIndex).getGroupe();
     	case 1:
-    		return this.etudiant.get(rowIndex).getID();
+    		return this.etudiant.get(rowIndex).getId();
     	case 2:
     		return this.etudiant.get(rowIndex).getNom();
     	case 3:
@@ -75,39 +69,41 @@ public class CsvEtudiant extends Csv {
     public void setValueAt(Object value, int rowIndex, int columnIndex){
     	switch(columnIndex){
     	case 0:
-    		this.etudiant.get(rowIndex).setGroupe((char)value);
+    		String val = (String)value;
+    		this.etudiant.get(rowIndex).setGroupe(val.trim().charAt(0));
+    		break;
     	case 1:
-    		this.etudiant.get(rowIndex).setID((int)value);
+    		this.etudiant.get(rowIndex).setId(Integer.parseInt(value.toString()));
+    		break;
     	case 2:
     		this.etudiant.get(rowIndex).setNom((String)value);
+    		break;
     	case 3:
     		this.etudiant.get(rowIndex).setPrenom((String)value);
+    		break;
     	}
         fireTableCellUpdated(rowIndex, columnIndex);
-    }
-    
-    @Override
-    public Class<?> getColumnClass(int columnIndex){
-    	switch(columnIndex){
-    	case 0:
-    		return Character.class;
-    	case 1:
-    		return Integer.class;
-    	case 2:
-    		return String.class;
-    	case 3:
-    		return String.class;
-    	}
-        return Object.class;
     }
     
     public String getFilePath(){
 		return this.filepath;
 	}
     
+    public Etudiant getEtudiantFromId(int id){
+		for(Etudiant etu : etudiant){
+			if(etu.getId() == id)
+				return etu;
+		}
+		return null;
+	}
+    
+    public List<Etudiant> getListEtudiant(){
+    	return this.etudiant;
+    }
+    
     public void addRow(Object[] ligne){
     	char groupe = (char)ligne[0];
-    	int id = (int)ligne[1];
+    	int id = Integer.parseInt((String)ligne[1]);
     	String nom = (String)ligne[2];
     	String prenom = (String)ligne[3];
     	

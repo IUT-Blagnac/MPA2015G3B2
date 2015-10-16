@@ -3,8 +3,6 @@ package lib;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.table.AbstractTableModel;
-
 public class CsvSujet extends Csv {
 	private static final long serialVersionUID = 1L;
 	
@@ -68,30 +66,28 @@ public class CsvSujet extends Csv {
     public void setValueAt(Object value, int rowIndex, int columnIndex){
     	switch(columnIndex){
     	case 0:
-    		this.sujet.get(rowIndex).setId((int)value);
+    		this.sujet.get(rowIndex).setId(Integer.parseInt((String)value));
+    		break;
     	case 1:
     		this.sujet.get(rowIndex).setNom((String)value);
+    		break;
     	case 2:
     		this.sujet.get(rowIndex).setTitre((String)value);
+    		break;
     	}
         fireTableCellUpdated(rowIndex, columnIndex);
     }
     
-    @Override
-    public Class<?> getColumnClass(int columnIndex){
-    	switch(columnIndex){
-    	case 0:
-    		return Integer.class;
-    	case 1:
-    		return String.class;
-    	case 2:
-    		return String.class;
-    	}
-        return Object.class;
-    }
-    
     public String getFilePath(){
 		return this.filepath;
+	}
+    
+    public Sujet getSujetFromId(int id){
+    	for(Sujet suj : sujet){
+    		if(suj.getId() == id)
+    			return suj;
+    	}
+		return null;
 	}
     
     public void addRow(Object[] ligne){

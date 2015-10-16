@@ -13,6 +13,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import lib.CsvEtudiant;
+import lib.CsvIntervenant;
+import lib.CsvProjet;
+import lib.CsvSujet;
+import lib.Gestion;
+
 
 public class OPTI extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -44,10 +50,15 @@ public class OPTI extends JFrame{
 		String intervenant = "csv/intervenants2014_2015.csv";
 		String projet = "csv/projets2014_2015.csv";
 		try{
-		tabbedPane.addTab("Etudiants", new OPTITableau(etudiant));
-		tabbedPane.addTab("Sujets", new OPTITableau(sujet));
-		tabbedPane.addTab("Intervenants",new OPTITableau(intervenant));
-		tabbedPane.addTab("Projets", new OPTITableauProjet(projet));
+		CsvEtudiant ce = new CsvEtudiant(etudiant);
+		tabbedPane.addTab("Etudiants", new OPTITableau(ce));
+		CsvSujet cs = new CsvSujet(sujet);
+		tabbedPane.addTab("Sujets", new OPTITableau(cs));
+		CsvIntervenant ci = new CsvIntervenant(intervenant);
+		tabbedPane.addTab("Intervenants",new OPTITableau(ci));
+		Gestion gestion = new Gestion(ce, cs, ci);
+		tabbedPane.addTab("Projets", new OPTITableau(new CsvProjet(projet, gestion)));
+		tabbedPane.addTab("Groupe",new OPTITableau(gestion.genererGroupes()));
 		tabbedPane.addTab("A propos", new JLabel("<HTML>Liste des membres du groupe : <br>"
 				+ "- Florian SEGUIN <br>" + "- Guilhem SABATHIER <br>"
 				+ "- Cedric DOULIEZ <br>" + "- Simon TAILLEFER <br>"

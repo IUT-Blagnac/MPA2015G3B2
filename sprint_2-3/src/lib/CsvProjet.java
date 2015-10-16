@@ -15,6 +15,7 @@ public class CsvProjet extends Csv {
         super();
         this.filepath = filepath;
         this.gestion = g;
+        this.gestion.setCsvProjet(this);
 		try{
 			List<String[]> data = LibCSV.readValues(filepath);
 			this.names= LibCSV.readTitles(filepath);
@@ -79,32 +80,27 @@ public class CsvProjet extends Csv {
     public void setValueAt(Object value, int rowIndex, int columnIndex){
     	switch(columnIndex){
     	case 0:
-    		this.projet.get(rowIndex).setId((int)value);
+    		this.projet.get(rowIndex).setId(Integer.parseInt((String)value));
+    		break;
     	case 1:
     		this.projet.get(rowIndex).setGroupe((char)value);
+    		break;
     	case 2:
     		this.projet.get(rowIndex).setSujet(gestion.getSujetFromId((int)value));
+    		break;
     	case 3:
     		this.projet.get(rowIndex).setClient(gestion.getIntervenantFromName((String)value));
+    		break;
     	case 4:
     		this.projet.get(rowIndex).setSuperviseur(gestion.getIntervenantFromName((String)value));
+    		break;
     	case 5:
     		this.projet.get(rowIndex).setSupportTechnique(gestion.getIntervenantFromName((String)value));
+    		break;
     	}
         fireTableCellUpdated(rowIndex, columnIndex);
     }
-    
-    @Override
-    public Class<?> getColumnClass(int columnIndex){
-    	switch(columnIndex){
-    	case 0:case 2:case 3:case 4:case 5:
-    		return Integer.class;
-    	case 1:
-    		return Character.class;
-    	}
-        return Object.class;
-    }
-    
+ 
     public String getFilePath(){
 		return this.filepath;
 	}

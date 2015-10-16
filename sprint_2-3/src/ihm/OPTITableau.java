@@ -1,24 +1,16 @@
 package ihm;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -49,7 +41,15 @@ public class OPTITableau extends JPanel {
 			         @Override
 			         public int compare(Object o1, Object o2){
 			        	try{
-			         		return Integer.parseInt((String)o1) - Integer.parseInt((String)o2);
+			        		if(o1.getClass() == Integer.class || o1.getClass() == int.class){
+			        			return (int)o1 - (int)o2;
+			        		}else if(o1.getClass() == Character.class || o1.getClass() == char.class){
+			        			return Character.compare((Character)o1, (Character)o2);
+			        		}else{
+			        			String s1 = (String)o1;
+				         		String s2 = (String)o2;
+				         		return s1.compareTo(s2);
+			        		}
 			         	}catch(Exception e){
 			         		String s1 = (String)o1;
 			         		String s2 = (String)o2;
@@ -96,11 +96,11 @@ public class OPTITableau extends JPanel {
 			
 		for(int i=lignes.length-1; i>=0; i--)
 			this.csv.removeRow(modelIndexes[i]);
-		csv.maj();
+		//csv.maj();
 	}
 	
 	class Ajouter implements ActionListener{
-		public void actionPerformed(ActionEvent actionEvent) {
+		public void actionPerformed(ActionEvent actionEvent) {/*
 			final ArrayList<JTextField> textes = new ArrayList<JTextField>();
 			
 			final JFrame creer = new JFrame("Saisir les valeurs souhaitées :");
@@ -144,20 +144,20 @@ public class OPTITableau extends JPanel {
 			
 			creer.setLocationRelativeTo(null);
 			creer.setVisible(true);
-			creer.pack();
+			creer.pack();*/
 		}
 	}
 	
 	class Sauver implements ActionListener{
 		public void actionPerformed(ActionEvent actionEvent) {
-			JFileChooser dialogue = new JFileChooser(".");
+			/*JFileChooser dialogue = new JFileChooser(".");
 			if(dialogue.showSaveDialog(null) ==  JFileChooser.APPROVE_OPTION){
 				String path = dialogue.getSelectedFile().getAbsolutePath();
 				if(!path.endsWith(".csv"))
 					path = path+".csv";
 				csv.save(path);
 				csv.save(csv.getFilePath());
-			}
+			}*/
 		}
 	}
 	
@@ -176,7 +176,7 @@ public class OPTITableau extends JPanel {
 		}
 	}
 	
-	
+	/*
 	public static void main(String[] args){
 		String file = "csv/sujets2014_2015.csv";
 		JFrame f = new JFrame("test");
@@ -194,5 +194,5 @@ public class OPTITableau extends JPanel {
 		f.setLocationRelativeTo(null);
 		f.pack();
 		f.setVisible(true);
-	}
+	}*/
 }

@@ -14,7 +14,7 @@ public class Etudiant {
 		this.groupe = groupe;
 	}
 	
-	public int getID(){
+	public int getId(){
 		return this.id;
 	}
 	
@@ -30,7 +30,7 @@ public class Etudiant {
 		return this.groupe;
 	}
 	
-	public void setID(int id){
+	public void setId(int id){
 		this.id = id;
 	}
 	
