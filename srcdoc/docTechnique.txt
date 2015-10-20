@@ -1,0 +1,171 @@
+﻿= Documentation Technique Projet OPTI
+:Author:  Groupe projet 3B2
+:doctitle: Documentation Technique SPRINT 2
+:slideshowlocation: Your computer
+:copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
+:toc: right
+:toc-title: Sommaire
+:revnumber: 2 - 3
+
+include::docConf.txt[]
+
+image::logo.png[link="logo.png",width="30%"]
+
+== Présentation 
+
+=== Sujet :
+
+Le but du projet OPTI est de fournir une application de gestion de projets tutorés informatiques.
+
+=== Organisation du groupe :
+
+Pour mener ce projet à bout, nous avons formé un équipe de 6 personnes. Nous allons utiliser la méthode agile SRCUM 
+pour être le plus efficace possible. Chaque semaine, nous effectuons un sprint où chaque membre a une tâche assignée.
+Nous devons fournir un recette à la fin de chaque sprint pour montrer notre avancée au client.  
+
+=== Backlog Produit : 
+
+[options="header"]
+|====================================================================================
+|Exigences                                            |Réalisation
+v|Liste des sujets de projet tutoré de l’année : 
+- Créer/Supprimer/Modifier un sujet
+- Lister les sujets avec filtres                           
+|100%
+v|Voeux des groupes d'étudiants :
+- Définir des groupes d'étudiants
+- Associer des étudiants à des groupes
+- Définir les voeux d’un groupe                                 
+|0%
+v|Affectation des projets aux groupes d'étudiants :
+- Définir (affectation) un sujet pour un groupe
+- Lister le nombre de voeux par rang pour un sujet 
+- Lister pour un groupe le nombre de "concurrents" par rang de voeux
+- Lister les sujets affectés / non affectés
+- Lister les groupes affectés / non affectés
+- Calcul automatique de pré-affectation "au mieux" sur un ensemble de groupes non affectés                                 
+|0%
+v|Affectation des intervenants sur chaque projet tutoré :
+- Définir les intervenants d’un projet tutoré 
+- Lister les projets par intervenant
+- Lister les intervenants par projet             
+|0%
+v|Afficher la liste :
+- Des étudiants, intervenants, sujets et projets
+- Pouvoir supprimer, ajouter et éditer les listes
+- Cloner un projet 
+- Sauvegarder dans n'importe quel fichier .csv
+- Groupes indiquant le projet, le sujet, les étudiants et l’ensemble des intervenants du projet
+- Etudiants indiquant le groupe, le sujet, le projet et l’ensemble des intervenants du projet             
+- Intervenants indiquant pour chaque projet, le sujet, le rôle, le groupe et le projet             
+|50%
+|====================================================================================
+
+Backlog SPRINT 2 - 3:
+
+[options="header"]
+|====================================================================================
+|Exigences                                            |Réalisation
+v|Corriger les bugs du Sprint 1 bis :                            
+|100%
+v|Lancer l'application facilement :                                 
+|100%
+v|Ecrire la notice d'utilisation :            
+|100%
+v|Sauvegarder dans n'importe quel fichier :            
+|100%
+v|Définir des groupes d'étudiants :            
+|0%
+v|Cloner un projet :            
+|100%
+|====================================================================================
+
+=== Membres du projet :
+
+[options="header"]
+|=======================================================================
+|Membres            |Rôle                        |Contact
+|Simon TAILLEFER    |SCRUM Master  |simon.taillefer@etu.univ-tlse2.fr
+|Guilhem SABATHIER  |Développeur   |guilhem.sabathier@etu.univ-tlse2.fr
+|Florian SEGUIN     |Développeur   |florian.seguin@etu.univ-tlse2.fr
+|Cédric DOULIEZ     |Développeur   |cedric.douliez@etu.univ-tlse2.fr
+|Antoine BADOC      |Développeur   |antoine.badoc@etu.univ-tlse2.fr
+|Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
+|=======================================================================
+
+== Diagrammes de conception
+
+=== Diagramme des classes : 
+
+image::diagram.png[link="diagram.png",width="15%"]
+
+=== SNI :
+
+SNI de ce qu'il était prévu de faire pour le sprint 2 - 3.
+
+image::sni.png[link="sni.png",width="40%"]
+
+Voici ce qui a été fait en plus :
+
+image::sni2.png[link="sni2.png",width="40%"]
+
+== Interface graphique
+
+=== Tests :
+
+image::accueil.png[link="accueil.png",width="25%"]
+
+L'application s'ouvre comme sur l'image ci-dessus.
+
+Une liste d'étudiants apparaît avec les boutons "Ajouter", "Supprimer", "Sauver".
+Idem pour sujets et intervenants.
+
+image::sujet.png[link="sujet.png",width="25%"]
+
+image::intervenant.png[link="intervenant.png",width="25%"]
+
+On peut changer d'onglet en cliquant dessus et pour accéder à la liste de son choix.
+
+image::creer.png[link="creer.png",width="15%"]
+
+Quand on clique sur "Ajouter", une nouvelle fenêtre s'ouvre avec un formulaire à 2 champs où il faut remplir avec le nom et la description du sujet.
+L'identifiant est automatiquement ajouté à la suite.
+
+image::supprimer.png[link="supprimer.png",width="25%"]
+
+Quand on clique sur "Supprimer", les lignes sélectionnées (en bleu) vont disparaître et les identifiants se remettront en ordre automatiquement.
+
+image::sauver.png[link="sauver.png",width="25%"]
+
+Pour sauvegarder les modifications, cliquer sur le boutons "Sauver". La fenêtre ci-dessous devrait s'ouvrir et le(s) fichier(s) csv sont enregistrés.
+
+image::interface.png[link="interface.png",width="25%"]
+
+Quand on clique sur l'onglet "A propos" de l'application, on doit voir les informations sur le projet et le groupe qui développe l'application.
+
+image::quitter.png[link="quitter.png",width="20%"]
+
+Quand on clique sur le bouton "Quitter" pour arrêter l'application une fenêtre de confirmation s'ouvre pour annuler l'arrêt ou quitter.
+
+== Javadoc interface graphique :
+
+link:../doc/OPTI.html[javadoc]
+
+== Javadoc controleur :
+
+link:../doc/LibCSV.html[javadoc]
+
+== Conclusion 
+
+=== A propos
+
+Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.
+
+=== Supports
+
+* Contactez <simon.taillefer@etu.univ-tlse2.fr>
+* Lien vers notre établissement : http://www.iut-blagnac.fr/[IUT de Blagnac]
+* Ou vers l'université : http://www.univ-tlse2.fr//[Université Toulouse 2]
+* L'application a été développée en https://www.java.com/fr/[Java]
+
+~© MPA S3 Groupe 3B2 2015 | Réalisé par G3B2 | Tous droits réservés.~ 
