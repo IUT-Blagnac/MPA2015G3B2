@@ -101,11 +101,9 @@ image::diagram.png[link="diagram.png",width="15%"]
 
 === SNI :
 
-SNI de ce qu'il était prévu de faire pour le sprint 2 - 3.
+SNI de ce propose pour le sprint 2 - 3. 2 SNI ont été fait pour plus de lisibilité.
 
 image::sni.png[link="sni.png",width="40%"]
-
-Voici ce qui a été fait en plus :
 
 image::sni2.png[link="sni2.png",width="40%"]
 
@@ -138,6 +136,10 @@ Quand on clique sur "Supprimer", les lignes sélectionnées (en bleu) vont dispa
 image::sauver.png[link="sauver.png",width="25%"]
 
 Pour sauvegarder les modifications, cliquer sur le boutons "Sauver". La fenêtre ci-dessous devrait s'ouvrir et le(s) fichier(s) csv sont enregistrés.
+
+image::cloner.png[link="cloner.png",width="25%"]
+
+Si l'on clique sur le bouton cloner, le projet devrait se copier/coller avec un identifiant différent.
 
 image::interface.png[link="interface.png",width="25%"]
 
