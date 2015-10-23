@@ -17,3 +17,18 @@ public static String pageProjetHTML() throws Exception{
 	}
 	return html;
 }
+
+
+"<!-- DEBUT page projets -->\n"+
+"<div data-role=\"page\" id=\"projets\" data-title=\"OPTIweb - V0.1\">\n"+
+"<div data-role=\"header\" data-add-back-btn=\"true\">\n"+
+"<h1>Projets 2014-2015</h1>\n"+
+"</div>\n"+
+"<div data-role=\"content\">\n"+
+
+"</div>\n"+
+"<div data-role=\"footer\">\n"+
+"<h4>OPTIweb V<span class=\"landscape\">ersion </span>0.1 <i class=\"fa fa-tasks fa-2x\"></i></h4> \n"+
+"</div>\n"+
+"</div>\n"+
+"<!-- FIN page projets -->\n"+
