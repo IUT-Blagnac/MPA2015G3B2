@@ -85,19 +85,19 @@ public class MakeOPTIweb{
 "</div>\n"+
 "<div data-role=\"content\">\n"+
 "  <form class=\"ui-filterable\"><input id=\"autocomplete-input-etudiant\" name=\"etudiant\" data-type=\"search\" placeholder=\"Etudiant ou Groupe X\"></form>\n"+
-"  <ol id=\"listeetudiants\" data-role=\"listview\" data-inset=\"true\" data-filter=\"true\" data-filter-reveal=\"false\" data-input=\"#autocomplete-input-etudiant\" data-divider-theme=\"b\">\n"+
-"  </ol>\n"+
+"  <ol id=\"listeetudiants\" data-role=\"listview\" data-inset=\"true\" data-filter=\"true\" data-filter-reveal=\"false\" data-input=\"#autocomplete-input-etudiant\" data-divider-theme=\"b\">\n";
+		try{
+			html += pageEtudiantHTML();
+		}catch(Exception e){
+			System.out.println(e.toString());
+		}
+		html += "  </ol>\n"+
 "</div>\n"+
 "<div data-role=\"footer\">\n"+ 
 " <h4>OPTIweb V<span class=\"landscape\">ersion </span>0.1 <i class=\"fa fa-group fa-2x\"></i></h4>\n"+
 "</div>\n"+
 "</div>\n"+
 "<!-- FIN page etudiants -->\n";
-		try{
-			html += pageEtudiantHTML();
-		}catch(Exception e){
-			System.out.println(e.toString());
-		}
 		html += "<script>\n"+
 " // li click handler which fills the projects search bar \n"+
 " // with the value of the current data-find attribute\n"+
