@@ -1,0 +1,24 @@
+rem echo off
+set SPRINTDIR=%~dp0
+set SRCDIR=./src/
+set BINDIR=./bin/
+
+set RUNTEST=1
+
+@echo ///////////////////////////////////////////////////////
+@echo // COMPILATION de la librairie
+@echo ///////////////////////////////////////////////////////
+javac -cp %SRCDIR%;%BINDIR% -d %BINDIR% ./src/MakeOPTIweb.java
+javac -cp %SRCDIR%;%BINDIR%;./tools/junit.jar -d %BINDIR% ./src/MOWTest.java
+
+@echo ///////////////////////////////////////////////////////
+@echo // EXECUTION des tests
+@echo ///////////////////////////////////////////////////////
+java -cp %BINDIR%;../tools/junit.jar MOWTest
+
+@echo ///////////////////////////////////////////////////////
+@echo // EXECUTION de l'application
+@echo ///////////////////////////////////////////////////////
+java -cp %BINDIR%;../tools/junit.jar MakeOPTIweb
+
+pause

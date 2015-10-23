@@ -1,0 +1,7 @@
+"<script>\n" +
+"$(document).bind('mobileinit',function(){\n" +
+"    $.mobile.changePage.defaults.changeHash = false;\n" +
+"    $.mobile.hashListeningEnabled = false;\n" +
+"    $.mobile.pushStateEnabled = false;\n" +
+"});\n" +
+"</script>\n" +

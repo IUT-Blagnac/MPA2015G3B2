@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="OPTIweb VOPTIweb" />
+<title>0.1 - V0.1</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<style type='text/css'>    
+@media all and (orientation:portrait) { .landscape {display: none;} }
+@media all and (orientation:landscape) { .landscape {display: inline;} }
+</style>
+</head><body>
+<!-- DEBUT page accueil -->
+<div data-role="page" id="accueil" data-title="OPTIweb - V0.1">
+<div data-role="header" data-add-back-btn="true">
+<h1>P<span class="landscape">rojets </span>tut<span class="landscape">orés</span> 2014-2015<br/>Département INFO<span class="landscape">RMATIQUE</span><br/>IUT de Blagnac</h1>
+<a href="#credits" data-theme="b" class="ui-btn-right">Crédits</a>
+</div>
+<div data-role="content">
+<ul data-role="listview" data-inset="true" id="listeSources">
+  <li><a href="#projets"><i class="fa fa-tasks"></i> Projets</a></li>
+  <li><a href="#sujets"><i class="fa fa-copy"></i> Sujets</a></li>
+  <li><a href="#etudiants"><i class="fa fa-group"></i> Etudiants</a></li>
+  <li><a href="#intervenants"><i class="fa fa-group"></i> Intervenants</a></li>
+</ul>
+</div>
+<div data-role="footer"> 
+ <h4>OPTIweb V<span class="landscape">ersion </span>0.1 <i class="fa fa- fa-2x"></i></h4> 
+</div>
+</div>
+<!-- FIN page accueil -->
+<!-- DEBUT page credits -->
+<div data-role="page" id="credits" data-title="OPTIweb - V0.1 - Crédits">
+<div data-role="header" data-add-back-btn="true">
+<h1>Crédits</h1>
+</div>
+<div data-role="content">
+    <p>Cette application a été réalisée dans le cadre du module M3301/MPA du DUT Informatique à l'IUT de Blagnac.</p>
+<ul data-role="listview" data-inset="true" id="contacts" data-theme="a" data-divider-theme="b">
+    <li data-role="list-divider">Product Owner</li>
+    <li>André PÉNINOU</li>
+    <li>Université Toulouse 2 - IUT de Blagnac
+    <br/>Département INFORMATIQUE</li>
+</ul>
+<ul data-role="listview" data-inset="true" id="listecredits" data-theme="a" data-divider-theme="b">
+    <li data-role="list-divider">Membres de l'équipe enseignante</li>
+<li>Jean-Michel BRUEL</li><li>Jean-Michel INGLEBERT</li><li>André PÉNINOU</li><li>Olivier ROQUES</li>
+</ul>
+<ul data-role="listview" data-inset="true" id="listepowered" data-theme="a" data-divider-theme="b">
+    <li data-role="list-divider">Propulsé par</li>
+    <li><a href="http://jquerymobile.com/" target="autrePage">http://jquerymobile.com/</a></li>
+    <li><a href="http://fortawesome.github.io/Font-Awesome/" target="autrePage">http://fortawesome.github.io/Font-Awesome/</a></li>
+</ul>
+</div>
+<div data-role="footer"> 
+ <h4>OPTIweb V<span class="landscape">ersion </span>0.1 <i class="fa fa- fa-2x"></i></h4> 
+</div>
+</div>
+<!-- FIN page credits --><script>
+ // li click handler which fills the projects search bar 
+ // with the value of the current data-find attribute
+ $( 'li[data-find]' ).on( 'click',function(event){
+  $("#autocomplete-input-projet").val($(this).attr('data-find')).trigger('change');
+ });
+</script>
+</body>
+</html>
