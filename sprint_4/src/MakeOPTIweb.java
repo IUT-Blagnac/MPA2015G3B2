@@ -121,11 +121,13 @@ public class MakeOPTIweb{
 	public static String pageEtudiantHTML() throws Exception{
 		String html = "";
 		ArrayList<String[]> listEtudiant = LibCSV.readValues("OPTIweb/test/etudiants2014_2015.csv");
+
+		html += "<li data-role=\"list-divider\">Etudiant"
+				+ "<span class=\"ui-li-count\" title=\"Groupe\" style=\"right: 40px !important;\">Groupe"
+				+ "</span></li>";
 		
 		for(String[] etudiant : listEtudiant){
-			html += "<li data-role=\"list-divider\">Etudiant"
-					+ "<span class=\"ui-li-count\" title=\"Groupe\" style=\"right: 40px !important;\">Groupe"
-					+ "</span></li><li data-find=\""
+			html += "<li data-find=\""
 					+ etudiant[3] + etudiant[2]
 					+ "\"><a href=\"#projets\">"
 					+ etudiant[2] + etudiant[3]
@@ -138,19 +140,47 @@ public class MakeOPTIweb{
 	
 	public static String pageIntervenantHTML() throws Exception{
 		String html = "";
-		ArrayList<String[]> listEtudiant = LibCSV.readValues("OPTIweb/test/intervenants2014_2015.csv");
+		ArrayList<String[]> listIntervenant = LibCSV.readValues("OPTIweb/test/intervenants2014_2015.csv");
 		
-		for(String[] etudiant : listEtudiant){
-			html += "<li data-role=\"list-divider\">Etudiant"
-					+ "<span class=\"ui-li-count\" title=\"Groupe\" style=\"right: 40px !important;\">Groupe"
-					+ "</span></li><li data-find=\""
-					+ etudiant[3] + etudiant[2]
+		html += "<li data-role=\"list-divider\">Intervenant"
+				+ "<span class=\"ui-li-count\" style=\"right: 110px !important;\" title=\"Client\">Client"
+				+ "</span><span class=\"ui-li-count\" title=\"Superviseur\">Superviseur"
+				+ "</span></li>";
+		
+		for(String[] intervenant : listIntervenant){
+			html += "<li data-find=\""
+					+ intervenant[3] + intervenant[2]
 					+ "\"><a href=\"#projets\">"
-					+ etudiant[2] + etudiant[3]
-					+ "<span class=\"ui-li-count\" title=\"Groupe\">Groupe "
-					+ etudiant[0]
+					+ intervenant[2] + intervenant[3]
+					+ "<span class=\"ui-li-count\" style=\"right: 120px !important;\" title=\"Client\">"
+					+ ""//conter le nombre de fois client
+					+ "</span><span class=\"ui-li-count\" title=\"Superviseur\">"
+					+ ""//conter le nombre de fois superviseur
 					+ "</span></a></li>";
 		}
+		return html;
+	}
+	
+	public static String pageSujetHTML() throws Exception{
+		String html = "";
+		ArrayList<String[]> listSujet = LibCSV.readValues("OPTIweb/test/intervenants2014_2015.csv");
+		
+		html += "<li data-role=\"list-divider\">Sujet"
+				+ "<span class=\"ui-li-count\" title=\"Groupe\" style=\"right: 40px !important;\">Groupe"
+				+ "</span></li>";
+		
+		for(String[] sujet : listSujet){
+			html += "<li data-find=\"["
+					+ sujet[3] + sujet[2]
+					+ "]\"><a href=\"#projets\">["
+					+ sujet[2] + sujet[3]
+					+ "]<span class=\"ui-li-count\" style=\"right: 120px !important;\" title=\"Client\">"
+					+ ""//conter le nombre de fois client
+					+ "</span><span class=\"ui-li-count\" title=\"Superviseur\">"
+					+ ""//conter le nombre de fois superviseur
+					+ "</span></a></li>";
+		}
+		//<li data-find="[ApexEComm]"><a href="#projets">[ApexEComm] <br/><div style="white-space:normal;"><span><b>Application et tutoriel Oracle Apex pour un site d'e-commerce</b></span><span class="ui-li-count">I</span></div></a></li><li data-find="[Archeologie]"><a href="#projets">[Archeologie] <br/><div style="white-space:normal;"><span><b>Groupe de recherche Chasséen Méridional</b></span><span class="ui-li-count">A</span></div></a></li><li data-find="[Architekt]"><a href="#projets">[Architekt] <br/><div style="white-space:normal;"><span><b>Architekt</b></span><span class="ui-li-count">N O</span></div></a></li><li data-find="[BDM NoSQL]"><a href="#projets">[BDM NoSQL] <br/><div style="white-space:normal;"><span><b>Développement d’un logiciel de conception d’une base de données multidimensionnelles</b></span><span class="ui-li-count">F</span></div></a></li><li data-find="[Carsat]"><a href="#projets">[Carsat] <br/><div style="white-space:normal;"><span><b>Questionnaire client sur page web et traitement des données</b></span><span class="ui-li-count">P</span></div></a></li><li data-find="[E-ICGD]"><a href="#projets">[E-ICGD] <br/><div style="white-space:normal;"><span><b>Environnement d'intégration continue de génération de documentation</b></span><span class="ui-li-count">G</span></div></a></li><li data-find="[GESDEP]"><a href="#projets">[GESDEP] <br/><div style="white-space:normal;"><span><b>Finalisation et déploiement de l'application de gestion des déplacements des personnels</b></span><span class="ui-li-count">D</span></div></a></li><li data-find="[PrestaShop]"><a href="#projets">[PrestaShop] <br/><div style="white-space:normal;"><span><b>Application et tutoriel sur Prestashop (logiciel e-commerce gratuit )</b></span><span class="ui-li-count">H Q</span></div></a></li><li data-find="[Prodif]"><a href="#projets">[Prodif] <br/><div style="white-space:normal;"><span><b>Refactoring de l'application Java PRODIF</b></span><span class="ui-li-count">K</span></div></a></li><li data-find="[Recon
 		return html;
 	}
 }
