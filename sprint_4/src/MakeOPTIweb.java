@@ -18,7 +18,6 @@ public class MakeOPTIweb{
 "<link rel=\"stylesheet\" href=\"http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css\" />\n"+
 "<link rel=\"stylesheet\" href=\"http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css\" />\n"+
 "<script src=\"http://code.jquery.com/jquery-1.9.1.min.js\"></script>\n"+
-"<script src=\"http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js\"></script>\n"+
 "<script>\n" +
 "$(document).bind('mobileinit',function(){\n" +
 "    $.mobile.changePage.defaults.changeHash = false;\n" +
@@ -26,6 +25,7 @@ public class MakeOPTIweb{
 "    $.mobile.pushStateEnabled = false;\n" +
 "});\n" +
 "</script>\n" +
+"<script src=\"http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js\"></script>\n"+
 "<style type='text/css'>    \n"+
 "@media all and (orientation:portrait) { .landscape {display: none;} }\n"+
 "@media all and (orientation:landscape) { .landscape {display: inline;} }\n"+
