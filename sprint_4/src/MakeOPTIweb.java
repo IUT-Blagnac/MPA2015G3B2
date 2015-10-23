@@ -5,7 +5,22 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class MakeOPTIweb{
+	
+	private static ArrayList<String[]> listProjet;
+	private static ArrayList<String[]> listSujet;
+	private static ArrayList<String[]> listEtudiant;
+	private static ArrayList<String[]> listIntervenant;
+	
 	public static void main(String[] args){
+		try{
+			listProjet = LibCSV.readValues("OPTIweb/test/projets2014_2015.csv");
+			listSujet = LibCSV.readValues("OPTIweb/test/sujets2014_2015.csv");
+			listEtudiant = LibCSV.readValues("OPTIweb/test/etudiants2014_2015.csv");
+			listIntervenant = LibCSV.readValues("OPTIweb/test/intervenants2014_2015.csv");
+		}catch(Exception e){
+			System.out.println(e.toString());
+		}
+		
 		String html = "";
 		
 		html += "<!DOCTYPE html>\n"+
@@ -78,6 +93,41 @@ public class MakeOPTIweb{
 "</div>\n"+
 "</div>\n"+
 "<!-- FIN page credits -->\n"+
+"\n"+//DEBUT PROJET
+"<!-- DEBUT page projets -->\n"+
+"<div data-role=\"page\" id=\"projets\" data-title=\"OPTIweb - V0.1\">\n"+
+"<div data-role=\"header\" data-add-back-btn=\"true\">\n"+
+"<h1>Projets 2014-2015</h1>\n"+
+"</div>\n"+
+"<div data-role=\"content\">\n"+
+"<form class=\"ui-filterable\"><input id=\"autocomplete-input-projet\" name=\"projet\" data-type=\"search\" placeholder=\"Vous cherchez ?...\"></form>"+
+"	<ol id=\"listeprojets\" data-role=\"listview\" data-inset=\"true\" data-filter=\"true\" data-filter-reveal=\"false\" data-input=\"#autocomplete-input-projet\">";
+		html += pageProjetHTML();
+		html += "	</ol>\n"+
+"</div>\n"+
+"<div data-role=\"footer\">\n"+
+"<h4>OPTIweb V<span class=\"landscape\">ersion </span>0.1 <i class=\"fa fa-tasks fa-2x\"></i></h4> \n"+
+"</div>\n"+
+"</div>\n"+
+"<!-- FIN page projets -->\n"+
+"\n"+//DEBUT SUJET
+"<!-- DEBUT page sujets -->\n"+
+"<div data-role=\"page\" id=\"sujets\" data-title=\"OPTIweb - V0.1\">\n"+
+"<div data-role=\"header\" data-add-back-btn=\"true\">\n"+
+"<h1>Sujets 2014-2015</h1>\n"+
+"</div>\n"+
+"<div data-role=\"content\">\n"+
+"  <form class=\"ui-filterable\"><input id=\"autocomplete-input-sujet\" name=\"sujet\" data-type=\"search\" placeholder=\"Vous cherchez ?\"></form>" +
+"	<ol id=\"listesujets\" data-role=\"listview\" data-inset=\"true\" data-filter=\"true\" data-filter-reveal=\"false\" data-input=\"#autocomplete-input-sujet\" data-divider-theme=\"b\" data-count-theme=\"a\">";
+		html += pageSujetHTML();
+		html += "	</ol>\n"+
+"</div>\n"+
+"<div data-role=\"footer\"> \n"+
+" <h4>OPTIweb V<span class=\"landscape\">ersion </span>0.1 <i class=\"fa fa-copy fa-2x\"></i></h4> \n"+
+"</div>\n"+
+"</div>\n"+
+"<!-- FIN page sujets -->\n"+
+"\n"+//DEBUT ETUDIANT
 "<!-- DEBUT page etudiants -->\n"+
 "<div data-role=\"page\" id=\"etudiants\" data-title=\"OPTIweb - V0.1\">\n"+
 "<div data-role=\"header\" data-add-back-btn=\"true\">\n"+
@@ -86,18 +136,32 @@ public class MakeOPTIweb{
 "<div data-role=\"content\">\n"+
 "  <form class=\"ui-filterable\"><input id=\"autocomplete-input-etudiant\" name=\"etudiant\" data-type=\"search\" placeholder=\"Etudiant ou Groupe X\"></form>\n"+
 "  <ol id=\"listeetudiants\" data-role=\"listview\" data-inset=\"true\" data-filter=\"true\" data-filter-reveal=\"false\" data-input=\"#autocomplete-input-etudiant\" data-divider-theme=\"b\">\n";
-		try{
-			html += pageEtudiantHTML();
-		}catch(Exception e){
-			System.out.println(e.toString());
-		}
+		html += pageEtudiantHTML();
 		html += "  </ol>\n"+
 "</div>\n"+
 "<div data-role=\"footer\">\n"+ 
 " <h4>OPTIweb V<span class=\"landscape\">ersion </span>0.1 <i class=\"fa fa-group fa-2x\"></i></h4>\n"+
 "</div>\n"+
 "</div>\n"+
-"<!-- FIN page etudiants -->\n";
+"<!-- FIN page etudiants -->\n"+
+"\n"+//DEBUT INERVENANT
+"<!-- DEBUT page intervenants -->\n"+
+"<div data-role=\"page\" id=\"intervenants\" data-title=\"OPTIweb - V0.1\">\n"+
+"<div data-role=\"header\" data-add-back-btn=\"true\">\n"+
+"<h1>Intervenants 2014-2015</h1>\n"+
+"</div>\n"+
+"<div data-role=\"content\">\n"+
+"  <form class=\"ui-filterable\"><input id=\"autocomplete-input-intervenant\" name=\"intervenant\" data-type=\"search\" placeholder=\"Intervenant\"></form>\n"+
+"	<ul id=\"listeintervenants\" data-role=\"listview\" data-inset=\"true\" data-filter=\"true\" data-filter-reveal=\"false\" data-input=\"#autocomplete-input-intervenant\" data-divider-theme=\"b\">\n";
+		html += pageIntervenantHTML();
+		html += "	</ul>\n"+
+"</div>\n"+
+"<div data-role=\"footer\"> \n"+
+" <h4>OPTIweb V<span class=\"landscape\">ersion </span>0.1 <i class=\"fa fa-group fa-2x\"></i></h4> \n"+
+"</div>\n"+
+"</div>\n"+
+"<!-- FIN page intervenants -->\n"+
+"\n";
 		html += "<script>\n"+
 " // li click handler which fills the projects search bar \n"+
 " // with the value of the current data-find attribute\n"+
@@ -118,9 +182,49 @@ public class MakeOPTIweb{
 		}
 	}
 	
-	public static String pageEtudiantHTML() throws Exception{
+	public static String pageProjetHTML(){
 		String html = "";
-		ArrayList<String[]> listEtudiant = LibCSV.readValues("OPTIweb/test/etudiants2014_2015.csv");
+		
+		for(String[] projet : listProjet){
+			String nomSujet = "";
+			String titreSujet = "";
+			String nomClient = "";
+			String nomSuperviseur = "";
+			String listEtudiants = "";
+			for(String[] sujet : listSujet)
+				if(sujet[0].compareToIgnoreCase(projet[2]) == 0){
+					nomSujet = sujet[1];
+					titreSujet = sujet[2];
+				}
+			for(String[] intervenant : listIntervenant){
+				if(intervenant[0].compareToIgnoreCase(projet[3]) == 0)
+					nomClient = intervenant[1]+" "+intervenant[2];
+				if(intervenant[0].compareToIgnoreCase(projet[4]) == 0)
+					nomSuperviseur = intervenant[1]+" "+intervenant[2];
+			}
+			for(String[] etudiant : listEtudiant){
+				if(etudiant[0].compareToIgnoreCase(projet[1]) == 0)
+					listEtudiants += etudiant[2]+" "+etudiant[3]+" - ";
+			}
+			html += "<li><p><b>["
+					+ nomSujet
+					+ "]</b> "
+					+ titreSujet
+					+ "</p><p><b>Client :</b> "
+					+ nomClient
+					+ "</p><p><b>Superviseur :</b> "
+					+ nomSuperviseur
+					+ "</p><p><b>Groupe "
+					+ projet[1]
+					+ ":</b> "
+					+ listEtudiants
+					+ "</p></li>";
+		}
+		return html;
+	}
+	
+	public static String pageEtudiantHTML(){
+		String html = "";
 
 		html += "<li data-role=\"list-divider\">Etudiant"
 				+ "<span class=\"ui-li-count\" title=\"Groupe\" style=\"right: 40px !important;\">Groupe"
@@ -128,9 +232,9 @@ public class MakeOPTIweb{
 		
 		for(String[] etudiant : listEtudiant){
 			html += "<li data-find=\""
-					+ etudiant[3] + etudiant[2]
+					+ etudiant[3] +" "+ etudiant[2]
 					+ "\"><a href=\"#projets\">"
-					+ etudiant[2] + etudiant[3]
+					+ etudiant[2] +" "+ etudiant[3]
 					+ "<span class=\"ui-li-count\" title=\"Groupe\">Groupe "
 					+ etudiant[0]
 					+ "</span></a></li>";
@@ -138,9 +242,8 @@ public class MakeOPTIweb{
 		return html;
 	}
 	
-	public static String pageIntervenantHTML() throws Exception{
+	public static String pageIntervenantHTML(){
 		String html = "";
-		ArrayList<String[]> listIntervenant = LibCSV.readValues("OPTIweb/test/intervenants2014_2015.csv");
 		
 		html += "<li data-role=\"list-divider\">Intervenant"
 				+ "<span class=\"ui-li-count\" style=\"right: 110px !important;\" title=\"Client\">Client"
@@ -148,39 +251,50 @@ public class MakeOPTIweb{
 				+ "</span></li>";
 		
 		for(String[] intervenant : listIntervenant){
+			int conteurClient = 0;
+			int conteurSuperviseur = 0;
+			for(String[] projet : listProjet){
+				if(projet[3].compareToIgnoreCase(intervenant[0]) == 0)
+					conteurClient ++;
+				if(projet[4].compareToIgnoreCase(intervenant[0]) == 0)
+					conteurSuperviseur ++;
+			}
 			html += "<li data-find=\""
-					+ intervenant[3] + intervenant[2]
+					+ intervenant[1] +" "+ intervenant[2]
 					+ "\"><a href=\"#projets\">"
-					+ intervenant[2] + intervenant[3]
+					+ intervenant[2] +" "+ intervenant[1]
 					+ "<span class=\"ui-li-count\" style=\"right: 120px !important;\" title=\"Client\">"
-					+ ""//conter le nombre de fois client
+					+ conteurClient
 					+ "</span><span class=\"ui-li-count\" title=\"Superviseur\">"
-					+ ""//conter le nombre de fois superviseur
+					+ conteurSuperviseur
 					+ "</span></a></li>";
 		}
 		return html;
 	}
 	
-	public static String pageSujetHTML() throws Exception{
+	public static String pageSujetHTML(){
 		String html = "";
-		ArrayList<String[]> listSujet = LibCSV.readValues("OPTIweb/test/intervenants2014_2015.csv");
 		
 		html += "<li data-role=\"list-divider\">Sujet"
 				+ "<span class=\"ui-li-count\" title=\"Groupe\" style=\"right: 40px !important;\">Groupe"
 				+ "</span></li>";
 		
 		for(String[] sujet : listSujet){
+			String groupe = "";
+			for(String[] projet : listProjet){
+				if(projet[2].compareToIgnoreCase(sujet[0]) == 0)
+					groupe = projet[1];
+			}
 			html += "<li data-find=\"["
-					+ sujet[3] + sujet[2]
+					+ sujet[1]
 					+ "]\"><a href=\"#projets\">["
-					+ sujet[2] + sujet[3]
-					+ "]<span class=\"ui-li-count\" style=\"right: 120px !important;\" title=\"Client\">"
-					+ ""//conter le nombre de fois client
-					+ "</span><span class=\"ui-li-count\" title=\"Superviseur\">"
-					+ ""//conter le nombre de fois superviseur
-					+ "</span></a></li>";
+					+ sujet[1]
+					+ "]<br/><div style=\"white-space:normal;\"><span><b>"
+					+ sujet[2]
+					+ "</b></span><span class=\"ui-li-count\">"
+					+ groupe
+					+ "</span></div></a></li>";
 		}
-		//<li data-find="[ApexEComm]"><a href="#projets">[ApexEComm] <br/><div style="white-space:normal;"><span><b>Application et tutoriel Oracle Apex pour un site d'e-commerce</b></span><span class="ui-li-count">I</span></div></a></li><li data-find="[Archeologie]"><a href="#projets">[Archeologie] <br/><div style="white-space:normal;"><span><b>Groupe de recherche Chasséen Méridional</b></span><span class="ui-li-count">A</span></div></a></li><li data-find="[Architekt]"><a href="#projets">[Architekt] <br/><div style="white-space:normal;"><span><b>Architekt</b></span><span class="ui-li-count">N O</span></div></a></li><li data-find="[BDM NoSQL]"><a href="#projets">[BDM NoSQL] <br/><div style="white-space:normal;"><span><b>Développement d’un logiciel de conception d’une base de données multidimensionnelles</b></span><span class="ui-li-count">F</span></div></a></li><li data-find="[Carsat]"><a href="#projets">[Carsat] <br/><div style="white-space:normal;"><span><b>Questionnaire client sur page web et traitement des données</b></span><span class="ui-li-count">P</span></div></a></li><li data-find="[E-ICGD]"><a href="#projets">[E-ICGD] <br/><div style="white-space:normal;"><span><b>Environnement d'intégration continue de génération de documentation</b></span><span class="ui-li-count">G</span></div></a></li><li data-find="[GESDEP]"><a href="#projets">[GESDEP] <br/><div style="white-space:normal;"><span><b>Finalisation et déploiement de l'application de gestion des déplacements des personnels</b></span><span class="ui-li-count">D</span></div></a></li><li data-find="[PrestaShop]"><a href="#projets">[PrestaShop] <br/><div style="white-space:normal;"><span><b>Application et tutoriel sur Prestashop (logiciel e-commerce gratuit )</b></span><span class="ui-li-count">H Q</span></div></a></li><li data-find="[Prodif]"><a href="#projets">[Prodif] <br/><div style="white-space:normal;"><span><b>Refactoring de l'application Java PRODIF</b></span><span class="ui-li-count">K</span></div></a></li><li data-find="[Recon
 		return html;
 	}
 }
