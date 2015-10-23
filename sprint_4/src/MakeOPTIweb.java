@@ -1,6 +1,8 @@
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class MakeOPTIweb{
 	public static void main(String[] args){
@@ -68,24 +70,27 @@ public class MakeOPTIweb{
 " <h4>OPTIweb V<span class=\"landscape\">ersion </span>0.1 <i class=\"fa fa- fa-2x\"></i></h4> \n"+
 "</div>\n"+
 "</div>\n"+
-"<!-- FIN page credits -->";
-		
-		
-		
-		/*
-		<li data-role="list-divider">
-		Etudiant
-		<span class="ui-li-count" title="
-		Groupe
-		" style="right: 40px !important;">
-		Groupe
-		</span></li><li data-find="
-		Arnauld ALEX
-		"><a href="#projets">
-		ALEX Arnauld
-		<span class="ui-li-count" title="Groupe">Groupe F</span></a></li>
-		*/
-		
+"<!-- FIN page credits -->\n"+
+"<!-- DEBUT page etudiants -->\n"+
+"<div data-role=\"page\" id=\"etudiants\" data-title=\"OPTIweb - V0.1\">\n"+
+"<div data-role=\"header\" data-add-back-btn=\"true\">\n"+
+"<h1>Etudiants 2014-2015</h1>\n"+
+"</div>\n"+
+"<div data-role=\"content\">\n"+
+"  <form class=\"ui-filterable\"><input id=\"autocomplete-input-etudiant\" name=\"etudiant\" data-type=\"search\" placeholder=\"Etudiant ou Groupe X\"></form>\n"+
+"  <ol id=\"listeetudiants\" data-role=\"listview\" data-inset=\"true\" data-filter=\"true\" data-filter-reveal=\"false\" data-input=\"#autocomplete-input-etudiant\" data-divider-theme=\"b\">\n"+
+"  </ol>\n"+
+"</div>\n"+
+"<div data-role=\"footer\">\n"+ 
+" <h4>OPTIweb V<span class=\"landscape\">ersion </span>0.1 <i class=\"fa fa-group fa-2x\"></i></h4>\n"+
+"</div>\n"+
+"</div>\n"+
+"<!-- FIN page etudiants -->\n";
+		try{
+			html += pageEtudiantHTML();
+		}catch(Exception e){
+			System.out.println(e.toString());
+		}
 		html += "<script>\n"+
 " // li click handler which fills the projects search bar \n"+
 " // with the value of the current data-find attribute\n"+
@@ -105,9 +110,40 @@ public class MakeOPTIweb{
 			System.out.println(e.toString());
 		}
 	}
-
-	public String pageEtudaintHTML(){
+	
+	public static String pageEtudiantHTML() throws Exception{
 		String html = "";
+		ArrayList<String[]> listEtudiant = LibCSV.readValues("OPTIweb/test/etudiants2014_2015.csv");
+		
+		for(String[] etudiant : listEtudiant){
+			html += "<li data-role=\"list-divider\">Etudiant"
+					+ "<span class=\"ui-li-count\" title=\"Groupe\" style=\"right: 40px !important;\">Groupe"
+					+ "</span></li><li data-find=\""
+					+ etudiant[3] + etudiant[2]
+					+ "\"><a href=\"#projets\">"
+					+ etudiant[2] + etudiant[3]
+					+ "<span class=\"ui-li-count\" title=\"Groupe\">Groupe "
+					+ etudiant[0]
+					+ "</span></a></li>";
+		}
+		return html;
+	}
+	
+	public static String pageIntervenantHTML() throws Exception{
+		String html = "";
+		ArrayList<String[]> listEtudiant = LibCSV.readValues("OPTIweb/test/intervenants2014_2015.csv");
+		
+		for(String[] etudiant : listEtudiant){
+			html += "<li data-role=\"list-divider\">Etudiant"
+					+ "<span class=\"ui-li-count\" title=\"Groupe\" style=\"right: 40px !important;\">Groupe"
+					+ "</span></li><li data-find=\""
+					+ etudiant[3] + etudiant[2]
+					+ "\"><a href=\"#projets\">"
+					+ etudiant[2] + etudiant[3]
+					+ "<span class=\"ui-li-count\" title=\"Groupe\">Groupe "
+					+ etudiant[0]
+					+ "</span></a></li>";
+		}
 		return html;
 	}
 }

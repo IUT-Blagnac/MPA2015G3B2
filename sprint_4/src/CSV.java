@@ -6,8 +6,8 @@ import javax.swing.table.AbstractTableModel;
 public class CSV extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	
-	protected List<Object[]> data;
-	protected Object[] names;
+	protected List<String[]> data;
+	protected String[] names;
 	protected String filepath;
     
     public CSV(String filepath){
@@ -55,7 +55,7 @@ public class CSV extends AbstractTableModel {
     
     @Override
     public void setValueAt(Object value, int rowIndex, int columnIndex){
-        this.data.get(rowIndex)[columnIndex] = value;
+        this.data.get(rowIndex)[columnIndex] = value.toString();
         fireTableCellUpdated(rowIndex, columnIndex);
     }
     
@@ -76,7 +76,7 @@ public class CSV extends AbstractTableModel {
     }
     
     public void save(String filepath){
-		List<Object[]> file = new ArrayList<Object[]>();
+		List<String[]> file = new ArrayList<String[]>();
 		file.add(this.names);
 		file.addAll(this.data);
 		try{

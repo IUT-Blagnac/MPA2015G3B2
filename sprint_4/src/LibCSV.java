@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -15,12 +16,12 @@ public class LibCSV {
 	 * @return title
 	 * @throws Exception
 	 */
-	public static Object[] readTitles(String filepath)throws Exception{
+	public static String[] readTitles(String filepath)throws Exception{
 		// Vérification que le format est bien CSV
 		if(!filepath.endsWith(".csv"))
 			throw new Exception("ERREUR Le fichier n'est pas sous format CSV");
 		// On initialise à null pour etre sur de renvoyer un Objet
-		Object[] title = null;
+		String[] title = null;
 		// Récuperation des données du fichier csv
 		try{
 			InputStream ips=new FileInputStream(filepath);
@@ -43,14 +44,14 @@ public class LibCSV {
 	 * @return csv
 	 * @throws Exception
 	 */
-	public static ArrayList<Object[]> readValues(String filepath)throws Exception{
+	public static ArrayList<String[]> readValues(String filepath)throws Exception{
 		// Vérification que le format est bien CSV
 		if(!filepath.endsWith(".csv"))
 			throw new Exception("ERREUR Le fichier n'est pas sous format CSV");
 		
-		ArrayList<Object[]> csv = new ArrayList<Object[]>();
-		Object[] test = null;
-		Object[] colonne;
+		ArrayList<String[]> csv = new ArrayList<String[]>();
+		String[] test = null;
+		String[] colonne;
 		// Récuperation des données du fichier csv
 		try{
 			
@@ -84,7 +85,7 @@ public class LibCSV {
 	 * @param filepath
 	 * @throws Exception
 	 */
-	public static void save(List<Object[]> csv, String filepath)throws Exception{
+	public static void save(List<String[]> csv, String filepath)throws Exception{
 		if(csv == null)
 			throw new Exception("ERREUR Matrice est NULL");
 		if(!filepath.endsWith(".csv"))
@@ -96,7 +97,7 @@ public class LibCSV {
 				for(int i=0; i<csv.size(); i++){
 					for(int j=0; j<csv.get(i).length; j++){
 						if(j<csv.get(i).length-1)
-							fichierSortie.print(csv.get(i)[j].toString()+';');
+							fichierSortie.print(csv.get(i)[j]+';');
 						else
 							fichierSortie.print(csv.get(i)[j]);
 					}
@@ -113,8 +114,8 @@ public class LibCSV {
 	 * @param line
 	 * @return
 	 */
-	private static Object[] readLine(String line){
-		ArrayList<Object> donnees = new ArrayList<Object>();
+	private static String[] readLine(String line){
+		ArrayList<String> donnees = new ArrayList<String>();
 		Scanner sc = new Scanner(line);
 		
 		// Récuperation des données de la ligne
@@ -128,7 +129,7 @@ public class LibCSV {
 				donnees.add(sc.next());
 		}
 		sc.close();
-		return donnees.toArray();
+		return donnees.toArray(new String[donnees.size()]);
 	}
 	
 	public static void main(String[] args) {
