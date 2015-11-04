@@ -1,6 +1,0 @@
-RCS $Id$ Marker Test
-====================
-$Id$
-
-
-Lorum ipsum...
