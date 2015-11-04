@@ -1,0 +1,116 @@
+﻿= Documentation Utilisateur Projet OPTI
+:Author:  Groupe projet 3B2
+:doctitle: Documentation Utilisateur SPRINT 2
+:slideshowlocation: Your computer
+:copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
+:toc: right
+:toc-title: Sommaire
+:revnumber: 2 - 3
+
+include::docConf.txt[]
+
+image::logo.png[link="logo.png",width="30%"]
+
+== Présentation 
+
+=== Sujet :
+
+Le but du projet OPTI est de fournir une application de gestion de projets tutorés informatiques.
+
+=== Organisation du groupe :
+
+Pour mener ce projet à bout, nous avons formé un équipe de 6 personnes. Nous allons utiliser la méthode agile SRCUM 
+pour être le plus efficace possible. Chaque semaine, nous effectuons un sprint où chaque membre a une tâche assignée.
+Nous devons fournir un recette à la fin de chaque sprint pour montrer notre avancée au client.  
+
+=== Backlog Produit : 
+
+Backlog SPRINT 2 - 3:
+
+[options="header"]
+|====================================================================================
+|Exigences                                            |Réalisation
+v|Corriger les bugs du Sprint 1 bis :                            
+|100%
+v|Lancer l'application facilement :                                 
+|100%
+v|Ecrire la notice d'utilisation :            
+|100%
+v|Sauvegarder dans n'importe quel fichier :            
+|100%
+v|Définir des groupes d'étudiants :            
+|0%
+v|Cloner un projet :            
+|0%
+|====================================================================================
+
+=== Membres du projet :
+
+[options="header"]
+|=======================================================================
+|Membres            |Rôle                        |Contact
+|Simon TAILLEFER    |SCRUM Master  |simon.taillefer@etu.univ-tlse2.fr
+|Guilhem SABATHIER  |Développeur   |guilhem.sabathier@etu.univ-tlse2.fr
+|Florian SEGUIN     |Développeur   |florian.seguin@etu.univ-tlse2.fr
+|Cédric DOULIEZ     |Développeur   |cedric.douliez@etu.univ-tlse2.fr
+|Antoine BADOC      |Développeur   |antoine.badoc@etu.univ-tlse2.fr
+|Mickael BAUSTITA   |Développeur   |mickael.bautista@etu.univ-tlse2.fr
+|=======================================================================
+
+== Guide d'utilisation
+
+Lancer l'application.
+
+image::accueil.png[link="accueil.png",width="25%"]
+
+Elle s'ouvre sur la liste des étudiants comme le montre l'image ci-dessus.
+Vous pouvez naviguer entre les différents onglets pour accéder à la liste des intervenants ou des sujets.
+
+Pour créer un nouveau sujet, étudiant ou intervenant, sélectionner le bon onglet puis cliquez sur le bouton "Ajouter".
+
+image::creer.png[link="creer.png",width="25%"]
+
+Une nouvelle page s'ouvre où vous pourrez saisir les informations demandés. Puis cliquer sur "Valider" pour confirmer.
+
+image::supprimer.png[link="supprimer.png",width="25%"]
+
+Si vous voulez supprimer une ligne ou plusieurs, sélectionnez sur la ou les lignes (elles seront bleutées) et cliquez sur le bouton "Supprimer".
+
+Pour modifier, sélectionnez la case et réécrivez directement dans celle-ci.
+
+image::sauver.png[link="sauver.png",width="25%"]
+
+Si vous voulez enregistrer vos modifications, cliquez sur le bouton "Sauver" puis sur ok sur la fenêtre qui s'ouvre.
+
+image::interface.png[link="interface.png",width="25%"]
+
+Pour l'onglet "Projet", vous pouvez cliquer sur "Cloner" pour copier un projet déjà existant:
+
+image::cloner.png[link="cloner.png",width="25%"]
+
+Si vous cliquez sur l'onglet "A propos", vous aurez des informations sur le groupe et la création de l'application.
+
+image::quitter.png[link="quitter.png",width="25%"]
+
+Pour quitter l'application, cliquer sur "Quitter". La page ci-dessus s'ouvre et vous demande une confirmation.
+
+WARNING: Si vous quittez sans avoir sauvegarder, vous perdrez vos modifications.
+
+== Conclusion 
+
+=== Où en sommes nous ?
+
+L'application propose une création ou suppression d'un sujet.
+
+=== A propos
+
+Ce projet est fait dans le cadre du DUT INFORMATIQUE S3 pour le module MPA.
+
+=== Supports
+
+* Contactez <simon.taillefer@etu.univ-tlse2.fr>
+* Lien vers notre établissement : http://www.iut-blagnac.fr/[IUT de Blagnac]
+* Ou vers l'université : http://www.univ-tlse2.fr//[Université Toulouse 2]
+* L'application a été développée en https://www.java.com/fr/[Java]
+
+~© MPA S3 Groupe 3B2 2015 | Réalisé par G3B2 | Tous droits réservés.~ 
