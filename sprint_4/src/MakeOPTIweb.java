@@ -1,7 +1,5 @@
 
-import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class MakeOPTIweb{
@@ -173,10 +171,8 @@ public class MakeOPTIweb{
 "</html>";
 		try {
 			FileWriter fw = new FileWriter("./OPTIwebTEST.html");
-			BufferedWriter bw = new BufferedWriter(fw);
-			PrintWriter fichierSortie = new PrintWriter(bw);
-				fichierSortie.print(html);
-			fichierSortie.close();
+				fw.write(html);
+			fw.close();
 		}catch (Exception e){
 			System.out.println(e.toString());
 		}
@@ -204,7 +200,7 @@ public class MakeOPTIweb{
 			}
 			for(String[] etudiant : listEtudiant){
 				if(etudiant[0].compareToIgnoreCase(projet[1]) == 0)
-					listEtudiants += etudiant[2]+" "+etudiant[3]+" - ";
+					listEtudiants += etudiant[3]+" "+etudiant[2]+" - ";
 			}
 			html += "<li><p><b>["
 					+ nomSujet
