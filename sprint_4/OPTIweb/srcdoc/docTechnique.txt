@@ -1,6 +1,9 @@
 = OPTIweb : Documentation Technique
 :Author:  DUT/INFO/M3301
 :lang: fr
+:toc: right
+:toc-title: Sommaire
+:revnumber: 0
 
 *********************
 'OPTIweb.html' est une application HTML de *consultation*
@@ -12,7 +15,6 @@ navigateurs et supports du moment (PC, tablettes, smartphones).
 
 == Fiche projet - SPRINT 4
 
-[icon="../../images/UT2JJ128.png"]
 [TIP]
 ====
 Membres de l'équipe enseignante:: Jean-Michel BRUEL, Jean-Michel INGLEBERT, André PÉNINOU et Olivier ROQUES
@@ -92,7 +94,6 @@ Le fichier 'OPTIweb.html' produit par le programme 'MakeOPTIweb.java'
 possède la structure +html/jquery/mobile+ suivante :
 
 [source,html]
-----
 <!DOCTYPE html>
 <html>
 <head>
@@ -121,7 +122,7 @@ possède la structure +html/jquery/mobile+ suivante :
 </script>
 </body>
 </html>
-----
+
 <1> css font-awesome
 <2> css jquery-mobile
 <3> javascript jquery

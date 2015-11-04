@@ -21,16 +21,6 @@ java -cp %BINDIR%;../tools/junit.jar MOWTest
 @echo ///////////////////////////////////////////////////////
 java -cp %BINDIR%;../tools/junit.jar MakeOPTIweb
 
-@echo ///////////////////////////////////////////////////////
-@echo // call .bat
-@echo ///////////////////////////////////////////////////////
-call ./OPTIweb/test/casperjs test casperAccueil.js
-call ./OPTIweb/test/casperjs test casperCredits.js
-call ./OPTIweb/test/casperjs test casperEtudiants.js
-call ./OPTIweb/test/casperjs test casperIntervenants.js
-call ./OPTIweb/test/casperjs test casperProjets.js
-call ./OPTIweb/test/casperjs test casperSujets.js
-
 pause
 
 @echo ///////////////////////////////////////////////////////
@@ -40,5 +30,18 @@ pause
 python %ASCIIDOCDIR%asciidoc.py -a iconsdir=../%ASCIIDOCDIR%/images/icons -o %SRCDOCDIR%docUtilisateur.html %SRCDOCDIR%docUtilisateur.txt
 
 python %ASCIIDOCDIR%asciidoc.py -a iconsdir=../%ASCIIDOCDIR%/images/icons -o %SRCDOCDIR%docTechnique.html %SRCDOCDIR%docTechnique.txt
+
+pause
+
+@echo ///////////////////////////////////////////////////////
+@echo // CASPERJS
+@echo ///////////////////////////////////////////////////////
+cd OPTIWeb/test
+casperjs.bat test casperAccueil.js
+casperjs.bat test casperCredits.js
+casperjs.bat test casperEtudiants.js
+casperjs.bat test casperProjets.js
+casperjs.bat test casperIntervenants.js
+casperjs.bat test casperSujets.js
 
 pause

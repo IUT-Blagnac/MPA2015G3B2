@@ -727,7 +727,7 @@ install: function(toclevels) {
 }
 
 }
-asciidoc.install();
+asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
@@ -735,6 +735,11 @@ asciidoc.install();
 <div id="header">
 <h1>OPTIweb : Documentation Technique</h1>
 <span id="author">DUT/INFO/M3301</span><br />
+<span id="revnumber">version 0</span>
+<div id="toc">
+  <div id="toctitle">Sommaire</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
@@ -958,6 +963,19 @@ par le programme <em>MakeOPTIweb.java</em> qui à partir des fichiers csv (Sujet
 possède la structure <code>html/jquery/mobile</code> suivante :</p></div>
 <div class="listingblock">
 <div class="content"></div></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>&lt;!-- <b>&lt;6&gt;</b> --&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>&lt;script&gt;    // &lt;7&gt;
+ // li click handler which fills the projects search bar
+ // with the value of the current data-find attribute
+ $( <em>li[data-find]</em> ).on( <em>click</em>,function(event){
+  $("#autocomplete-input-projet").val($(this).attr(<em>data-find</em>)).trigger(<em>change</em>);
+ });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</p></div>
 <div class="colist arabic"><ol>
 <li>
 <p>
@@ -1321,7 +1339,8 @@ Bouton de retour à la page d&#8217;accueil
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Dernière mise à jour 2015-10-23 16:13:14 Paris, Madrid (heure d’été)
+Version 0<br />
+Dernière mise à jour 2015-11-04 16:15:11 Paris, Madrid
 </div>
 </div>
 </body>
