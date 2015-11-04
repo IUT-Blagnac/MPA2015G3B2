@@ -1,6 +1,6 @@
 
-import java.io.FileWriter;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
 public class MakeOPTIweb{
 	
@@ -16,11 +16,11 @@ public class MakeOPTIweb{
 			listEtudiant = LibCSV.readValues("OPTIweb/test/etudiants2014_2015.csv");
 			listIntervenant = LibCSV.readValues("OPTIweb/test/intervenants2014_2015.csv");
 		}catch(Exception e){
-			System.out.println(e.toString());
+			System.out.println("ERREUR lors de la lecture : "+e.toString());
 		}
-		
+		creerJson();
 		String html = "";
-		
+
 		html += "<!DOCTYPE html>\n"+
 "<html>\n"+
 "<head>\n"+
@@ -292,5 +292,77 @@ public class MakeOPTIweb{
 					+ "</span></div></a></li>";
 		}
 		return html;
+	}
+
+	public static void creerJson(){
+		String[] titleSujet = null;
+		String[] titleEtudiant = null;
+		String[] titleIntervenant = null;
+		try{
+			titleSujet = LibCSV.readTitles("OPTIweb/test/sujets2014_2015.csv");
+			titleEtudiant = LibCSV.readTitles("OPTIweb/test/etudiants2014_2015.csv");
+			titleIntervenant = LibCSV.readTitles("OPTIweb/test/intervenants2014_2015.csv");
+		}catch(Exception e){
+			System.out.println("ERREUR lors de la lecture : "+e.toString());
+		}
+		String etudiant = "";
+		String sujet = "";
+		String intervenant = "";
+		//ETUDIANT//
+		etudiant += "[\n";
+		for(int i = 0; i < listEtudiant.size(); i++){
+		    etudiant += "{";
+		    for(int j = 0; j < titleEtudiant.length; j++){
+		    	if(j == 0)
+		    		etudiant +="\"group\": \""+ listEtudiant.get(i)[j]+"\"";
+		    	else
+		    		etudiant +="\""+ titleEtudiant[j]+"\": \""+ listEtudiant.get(i)[j]+"\"";
+		    	if(j != titleEtudiant.length-1)
+		    		etudiant += ",\n";
+		    }
+		    if(i != listEtudiant.size()-1)
+		    	etudiant += "},\n";
+		}
+		etudiant += "}\n]";
+		//INTERVENANT//
+		intervenant += "[\n";
+		for(int i = 0; i < listIntervenant.size(); i++){
+			intervenant += "{";
+		    for(int j = 1; j < titleIntervenant.length; j++){
+		    	intervenant +="\""+ titleIntervenant[j]+"\": \""+ listIntervenant.get(i)[j]+"\"";
+		    	if(j != titleIntervenant.length-1)
+		    		intervenant += ",\n";
+		    }
+		    if(i != listIntervenant.size()-1)
+		    	intervenant += "},\n";
+		}
+		intervenant += "}\n]";
+		//SUJET//
+		sujet += "[\n";
+		for(int i = 0; i < listSujet.size(); i++){
+			sujet += "[";
+		    for(int j = 1; j < titleSujet.length; j++){
+		    	sujet +="\""+ listSujet.get(i)[j]+"\"";
+		    	if(j != titleSujet.length-1)
+		    		sujet += ",";
+		    }
+		    if(i != listSujet.size()-1)
+		    	sujet += "],\n";
+		}
+		sujet += "]\n]";
+		
+		try{
+			FileWriter etujs = new FileWriter("OPTIweb/test/etudiants2014_2015test.json");
+			etujs.write(etudiant);
+			etujs.close();
+			FileWriter interjs = new FileWriter("OPTIweb/test/intervenants2014_2015test.json");
+			interjs.write(intervenant);
+			interjs.close();
+			FileWriter sujjs = new FileWriter("OPTIweb/test/sujets2014_2015test.json");
+			sujjs.write(sujet);
+			sujjs.close();
+		}catch(Exception e){
+			System.out.println("ERREUR lors de l'écriture : "+e.toString());
+		}
 	}
 }
