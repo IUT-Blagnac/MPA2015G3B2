@@ -35,7 +35,6 @@ script:
   - java -cp .:../../junit.jar HelloMondeTest
   - java -cp .:../../junit.jar LibCSVTest
   - java -cp .:../../junit.jar CSVTest
-  - java -cp .:../../junit.jar MOWTest
   - cd ../OPTIweb/test
   - cp OPTIwebprof.html /tmp/OPTIweb.html
   - casperjs test casperAccueil.js
