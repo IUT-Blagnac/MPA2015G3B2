@@ -1,36 +1,227 @@
-= MPA : Pr√©sentation finale de recette MPAstaff
-:Author:  DUT/INFO/M3301
+= MPA : Presentation finale G3B2
+:Author: Groupe projet 3B2
 :lang: fr
-:slideshowlocation: Your computer
-:copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
+:copyright: {date={localdate}} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :duration: 30
-:incremental: 1
 
-== Premier transparent
+include::docConf.txt[]
 
-A vous ...
+== Introduction
+image::logo.png[link="logo.png",width="30%"]
 
--  item 1
--  item 2
--  item 3
+*Presentation des membres*
 
-NOTE: On compte en moyenne 3mn par transparent
+* Cedric DOULIEZ
+* Florian SEGUIN
+* Mickael BAUTISTA 
+* Antoine BADOC
+* Guilhem SABATHIER
+* Simon TAILLEFER
+ 
+*Sujet*
+ 
+Le but du projet OPTI est de fournir une application 
+de gestion de projets tutores informatiques.
 
-== Second transparent
+== OPTI
 
-image:./images/diag0.png[]
+*Application*
 
-NOTE: Plus que 8 slides
+image::accueil.png[link="accueil.png",width="40%"]
+
+Voici la page qui s'ouvre quand on lance l'application
+
+*Site*
+
+image::site.png[link="site.png",width="80%"]
+
+== Bilan fonctionnel
 
 
-== Troisi√®me transparent
+Lors du projet, nous avons reussi a developper, lors des differents sprints les fonctionnalites suivantes:
 
-.HelloMonde.java
-----
-include::../src/HelloMonde.java[]
-----
+* Creer une application graphique fonctionnelle
 
-== Perspectives
+* Afficher les csv dans l'application
 
-image:./images/sieste.png[]
+* Lancer l'application facilement
 
+* Creer supprimer un sujet
+
+* Sauvegarder dans n'importe quel fichier .csv
+
+* Cloner un projet
+
+* Definir des groupes d'etudiants
+
+* Optimiser l'application
+
+* Creer un site web fonctionnel
+
+* Ecrire des tests
+
+* Creer la page d'acceuil du site
+ 
+* Ecrire le code permettant de generer la page des sujets 
+
+* Ecrire le code permettant de generer la page des sujets 
+
+* Creer la page des projets
+
+* Generer la page des sujets
+
+* Ecrire le code permettant de creer la page "credits" du site
+
+
+Par ailleurs, nous avons du abandonner certaines fonctionnalites suivantes par manque de temps :
+
+* Definir les intervenants d'un projet tutore
+
+* Associer des etudiants a des groupes
+
+* Definir les voeux d'un groupe
+
+* Definir (affectation) un sujet pour un groupe
+
+* Lister le nombre de voeux par rang pour un sujet
+
+* Lister pour un groupe le nombre de  "concurrents"
+
+* Lister les sujets affectes / non affectes
+
+* Lister les groupes affectes / non affectes
+
+* Calcul automatique de pre-affectation "au mieux"
+
+* Definir les intervenants d'un projet tutore
+
+* Lister les projets par intervenant
+
+* Lister les intervenants indiquant le sujet, le role, le groupe et le projet
+
+* Lister les etudiants indiquant le groupe, le sujet, le projet et l'ensemble des intervenants du projet
+
+* Verifier que l'application fonctionne bien
+
+On peut voir que parmi les fonctionnalites que nous avons pas pu faire, certaines sont liees ce qui implique que nous 
+n'ayons pas pu les traiter par exemple si les intervenants ne sont pas affectes a un projet tutore nous ne pouvons pas 
+lister les projets par intervenants.
+
+Pour conclure, nous avons reussit a realiser les fonctionnalites principales du projet et il manque que quelques fonctions du au manque de temps.
+
+== Bilan technique
+
+*Langages utilises* 
+
+	. Java 
+	. Python
+	. HTML / CSS
+	. JQuerry
+	. Asciidoc
+	
+*Outils*
+
+	* Redmine
+	* SVN
+	* GitHub
+	* Travis
+	* PlantUML
+
+== Bilan Financier
+
+[options="header"]
+|=========================================================
+|Nombre de Seances |Heures par seances|Travail personnel|Total en Heures
+
+|16TD - 16TP |1h30|10h/personnes| 348h pour 6 personnes
+
+|=========================================================
+
+Le projet etait beaucoup trop long pour la charge de travail demandees meme en travaillant 
+en dehors des heures de travail.
+
+== Bilan Humain
+
+*Repartition de taches*
+
+[options="header"]
+|=========================================================
+|Membres |Taches 
+
+|Mickael BAUTISTA  |
+Documentations
+
+|Antoine BADOC     |
+Developpement Java en general
+
+|Cedric DOULIEZ     |
+Controleur (LibCSV), developpement Java
+
+|Florian SEGUIN    |
+ IHM (OPTI,..), developpement Java
+
+|Simon TAILLEFER   |
+Scrum Master, conception modeles
+
+|Guilhem SABATHIER |
+Documentations, conception modeles
+|=========================================================
+
+* Bonne entente du groupe
+* Bonne communication et entraide
+* Difficile repartition des taches au debut mais bonne a la fin
+
+== Bilan Global
+
+*Liste des exigences*
+
+[options="header"]
+|====================================================================================
+|Exigences                                            |Realisation
+v|Liste des sujets de projet tutore de líannee : 
+- Creer/Supprimer/Modifier un sujet
+- Lister les sujets avec filtres                           
+|100%
+v|Voeux des groupes d'etudiants :
+- Definir des groupes d'etudiants
+- Associer des etudiants a des groupes
+- Definir les voeux díun groupe                                 
+|50%
+v|Affectation des projets aux groupes d'etudiants :
+- Definir (affectation) un sujet pour un groupe
+- Lister le nombre de voeux par rang pour un sujet 
+- Lister pour un groupe le nombre de "concurrents" par rang de voeux
+- Lister les sujets affectes / non affectes
+- Lister les groupes affectes / non affectes
+- Calcul automatique de pre-affectation "au mieux" sur un ensemble de groupes non affectes                                 
+|0%
+v|Affectation des intervenants sur chaque projet tutore :
+- Definir les intervenants díun projet tutore 
+- Lister les projets par intervenant
+- Lister les intervenants par projet             
+|10%
+v|Afficher la liste :
+- Des etudiants, intervenants, sujets et projets
+- Pouvoir supprimer, ajouter et editer les listes
+- Cloner un projet 
+- Sauvegarder dans n'importe quel fichier .csv
+- Groupes indiquant le projet, le sujet, les etudiants et líensemble des intervenants du projet
+- Etudiants indiquant le groupe, le sujet, le projet et líensemble des intervenants du projet             
+- Intervenants indiquant pour chaque projet, le sujet, le role, le groupe et le projet             
+|90%
+|====================================================================================
+
+*Conclusion* 
+
+Ce projet nous a permis :
+
+* De decouvrir une nouvelle methode de developpement (methode agile)
+* D'apprendre a utiliser de nouveaux logiciels
+* De nous perfectionnes sur certains langages et logiciels de programmation
+* D'etre plus performants sur la mise en place d'un groupe
+
+Mais nous avons aussi eu quelques problemes :
+
+* Travailler avec des delais courts n'est pas evident
+* La mise en place du groupe etait compliquee au debut
+* Les demandes etaient beaucoup trop nombreuses
