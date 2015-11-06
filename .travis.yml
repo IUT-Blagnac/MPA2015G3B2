@@ -27,7 +27,7 @@ script:
   - echo Hello from DUT INFO Blagnac
   - ls -alF
   - cd sprint_5
-  - ./makedoc.bat
+  - system ("./makedoc.bat")
   - cd bin
   - java -cp .:../../junit.jar HelloMondeTest
   - java -cp .:../../junit.jar LibCSVTest
